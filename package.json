@@ -1,0 +1,14 @@
+{
+  "name": "cowi-ar",
+  "version": "1.0.0",
+  "description": "cowi ar element",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "mazur",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
