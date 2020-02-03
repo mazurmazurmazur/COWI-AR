@@ -4,7 +4,8 @@
   "description": "cowi ar element",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "start": "node server"
   },
   "author": "mazur",
   "license": "ISC",
