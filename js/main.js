@@ -3,6 +3,35 @@ window.onload = () => {
   renderPlaces(places);
 };
 
+var x = document.getElementById("demo");
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+    console.log("NIEXXX " + x);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+    console.log("lol " + x);
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML =
+    "Latitude: " +
+    position.coords.latitude +
+    "<br>Longitude: " +
+    position.coords.longitude;
+}
+
+function yourFunction() {
+  // do whatever you like here
+
+  getLocation();
+
+  setTimeout(yourFunction, 1000);
+}
+
+yourFunction();
+
 function staticLoadPlaces() {
   return [
     {

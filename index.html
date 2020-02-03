@@ -13,8 +13,14 @@
     </script>
   </head>
 
-  <script src="./js/main.js"></script>
   <body style="margin: 0; overflow: hidden;">
+    <div
+      id="demoContainer"
+      onclick="getLocation()"
+      style="z-index: 1000000; background-color: white; position: fixed; top: 5vh; right: 5vw;"
+    >
+      <p id="demo">test</p>
+    </div>
     <a-scene
       vr-mode-ui="enabled: false"
       embedded
@@ -22,5 +28,7 @@
     >
       <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
+
+    <script src="./js/main.js"></script>
   </body>
 </html>
