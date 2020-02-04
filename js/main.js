@@ -80,7 +80,9 @@ function staticLoadPlaces() {
 function renderPlaces(places) {
   let scene = document.querySelector("a-scene");
 
+  let i = 0;
   places.forEach(place => {
+    i++;
     let latitude = place.location.lat;
     let longitude = place.location.lng;
 
@@ -91,6 +93,7 @@ function renderPlaces(places) {
     );
     model.setAttribute("src", "./assets/marker.png");
     model.setAttribute("scale", "20 20 20");
+    model.setAttribute("name", "attribute" + i);
 
     model.addEventListener("loaded", () => {
       window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
