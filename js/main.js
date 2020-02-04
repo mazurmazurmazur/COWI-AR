@@ -87,6 +87,7 @@ function renderPlaces(places) {
     let longitude = place.location.lng;
 
     let model = document.createElement("a-image");
+    let tekst = docuemnt.createElement("a-text");
     model.setAttribute(
       "gps-entity-place",
       `latitude: ${latitude}; longitude: ${longitude};`
@@ -96,6 +97,8 @@ function renderPlaces(places) {
     model.setAttribute("name", "attribute" + i);
     model.setAttribute("title", "attribute" + i);
     model.setAttribute("text", "attribute" + i);
+    tekst.setAttribute("value", "text-attr " + i);
+    model.appendChild(tekst);
 
     model.addEventListener("loaded", () => {
       window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
