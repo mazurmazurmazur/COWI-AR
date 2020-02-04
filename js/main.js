@@ -7,10 +7,8 @@ var x = document.getElementById("demo");
 function getLocation() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showPosition);
-    console.log("NIEXXX " + x);
   } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
-    console.log("lol " + x);
   }
 }
 
@@ -35,10 +33,45 @@ yourFunction();
 function staticLoadPlaces() {
   return [
     {
-      name: "Magnemite",
+      name: "marker1",
       location: {
-        lat: 55.706762,
-        lng: 12.530703
+        lat: 55.767564,
+        lng: 12.504835
+      }
+    },
+    {
+      name: "marker2",
+      location: {
+        lat: 55.767365,
+        lng: 12.505554
+      }
+    },
+    {
+      name: "marker3",
+      location: {
+        lat: 55.766846,
+        lng: 12.506949
+      }
+    },
+    {
+      name: "marker4",
+      location: {
+        lat: 55.766604,
+        lng: 12.503194
+      }
+    },
+    {
+      name: "marker5",
+      location: {
+        lat: 55.766181,
+        lng: 12.504524
+      }
+    },
+    {
+      name: "marker6",
+      location: {
+        lat: 55.765794,
+        lng: 12.506487
       }
     }
   ];
