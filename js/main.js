@@ -37,41 +37,6 @@ function staticLoadPlaces() {
     {
       name: "Magnemite",
       location: {
-        lat: 55.766616,
-        lng: 12.504592
-      }
-    },
-    {
-      name: "Magnemite",
-      location: {
-        lat: 55.766616,
-        lng: 12.504592
-      }
-    },
-    {
-      name: "Magnemite",
-      location: {
-        lat: 55.766616,
-        lng: 12.504592
-      }
-    },
-    {
-      name: "Magnemite",
-      location: {
-        lat: 55.766616,
-        lng: 12.504592
-      }
-    },
-    {
-      name: "Magnemite",
-      location: {
-        lat: 55.707589,
-        lng: 12.530737
-      }
-    },
-    {
-      name: "Magnemite",
-      location: {
         lat: 55.707764,
         lng: 12.529825
       }
