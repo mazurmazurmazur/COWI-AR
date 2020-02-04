@@ -93,7 +93,7 @@ function renderPlaces(places) {
     );
     model.setAttribute("src", "./assets/marker.png");
     model.setAttribute("scale", "20 20 20");
-    model.setAttribute("title", "attribute" + i);
+    model.setAttribute("name", "attribute" + i);
 
     model.addEventListener("loaded", () => {
       window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
