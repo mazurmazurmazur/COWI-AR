@@ -84,13 +84,13 @@ function renderPlaces(places) {
     let latitude = place.location.lat;
     let longitude = place.location.lng;
 
-    let model = document.createElement("a-entity");
+    let model = document.createElement("a-image");
     model.setAttribute(
       "gps-entity-place",
       `latitude: ${latitude}; longitude: ${longitude};`
     );
-    model.setAttribute("gltf-model", "./assets/marker.png");
-    model.setAttribute("scale", "2.5 2.5 2.5");
+    model.setAttribute("src", "./assets/marker.png");
+    model.setAttribute("scale", "20 20");
 
     model.addEventListener("loaded", () => {
       window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
