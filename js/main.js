@@ -85,10 +85,10 @@ function renderPlaces(places) {
 
   window.onload = () => {
     places.features.forEach(place => {
-      console.log(place.geometry.coordinates[0][0]);
+      console.log("longtitude" + place.geometry.coordinates[0][0]);
       console.log(place.geometry.coordinates[0][1]);
-      let latitude = place.geometry.coordinates[0][1];
-      let longitude = place.geometry.coordinates[0][0];
+      let latitude = place.geometry.coordinates[0][0];
+      let longitude = place.geometry.coordinates[0][1];
 
       let model = document.createElement("a-entity");
       let text = document.createElement("a-entity");
@@ -102,12 +102,13 @@ function renderPlaces(places) {
       pinImage.setAttribute("src", "./assets/marker.png");
 
       console.log(place.properties.comment);
-      text.setAttribute("position", "0 0.8 0");
 
       text.setAttribute(
         "text",
         "value: " + place.properties.comment + "; align: center;  color: red;"
       );
+
+      text.setAttribute("position", "0 0.8 0");
 
       model.addEventListener("loaded", () => {
         window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
