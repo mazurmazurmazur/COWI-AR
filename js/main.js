@@ -107,13 +107,15 @@ function renderPlaces(places) {
         "value : Nowy tekst; align: center; baseline: top; color: red;"
       );
 
-      model.appendChild(text);
-      model.appendChild(pinImage);
-      scene.appendChild(model);
+      pinImage.setAttribute("src", "./assets/marker.png");
 
       model.addEventListener("loaded", () => {
         window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
       });
+
+      model.appendChild(text);
+      model.appendChild(pinImage);
+      scene.appendChild(model);
     });
   };
 }
