@@ -90,7 +90,7 @@ function renderPlaces(places) {
       let latitude = place.geometry.coordinates[0][0];
       let longitude = place.geometry.coordinates[0][1];
 
-      let model = document.createElement("a-entity");
+      let model = document.createElement("a-image");
       let text = document.createElement("a-entity");
       let pinImage = document.createElement("a-image");
 
@@ -98,6 +98,8 @@ function renderPlaces(places) {
         "gps-entity-place",
         `latitude: ${latitude}; longitude: ${longitude};`
       );
+
+      model.setAttribute("src", "./assets/marker.png");
 
       pinImage.setAttribute("src", "./assets/marker.png");
 
@@ -114,8 +116,8 @@ function renderPlaces(places) {
         window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
       });
 
-      model.appendChild(text);
-      model.appendChild(pinImage);
+      // model.appendChild(text);
+      // model.appendChild(pinImage);
       scene.appendChild(model);
     });
   };
