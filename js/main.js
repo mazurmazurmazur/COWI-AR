@@ -101,6 +101,7 @@ function renderPlaces(places) {
       );
 
       pinImage.setAttribute("src", "./assets/marker.png");
+      pinImage.setAttribute("scale", "10 10 1");
 
       text.setAttribute("position", "0 1 0");
       text.setAttribute(
