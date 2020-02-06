@@ -100,12 +100,12 @@ function renderPlaces(places) {
         `latitude: ${latitude}; longitude: ${longitude};`
       );
 
-      model.setAttribute("size", "20 20 20");
+      model.setAttribute("scale", "20 20 20");
 
       pinImage.setAttribute("src", "./assets/marker.png");
 
       text.setAttribute("position", "0 0.8 0");
-      text.setAttribute("size", "2 2 1");
+      text.setAttribute("scale", "2 2 1");
       text.setAttribute(
         "text",
         "value: " + place.properties.comment + "; align: center;  color: red;"
