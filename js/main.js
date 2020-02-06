@@ -100,8 +100,6 @@ function renderPlaces(places) {
         `latitude: ${latitude}; longitude: ${longitude};`
       );
 
-      model.setAttribute("scale", "20 20 20");
-
       pinImage.setAttribute("src", "./assets/marker.png");
 
       text.setAttribute("position", "0 0.8 0");
