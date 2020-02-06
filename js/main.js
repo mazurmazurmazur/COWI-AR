@@ -100,8 +100,7 @@ function renderPlaces(places) {
         `latitude: ${latitude}; longitude: ${longitude};`
       );
 
-      model.setAttribute("scale", "20 20 20");
-      text.setAttribute("scale", "3 3 2");
+      text.setAttribute("scale", "20 20 2");
       text.setAttribute("position", "0 0.7 0");
       text.setAttribute(
         "text",
