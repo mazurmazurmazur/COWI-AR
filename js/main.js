@@ -87,8 +87,8 @@ function renderPlaces(places) {
     places.features.forEach(place => {
       console.log(place.geometry.coordinates[0][0]);
       console.log(place.geometry.coordinates[0][1]);
-      let latitude = place.geometry.coordinates[0][0];
-      let longitude = place.geometry.coordinates[0][1];
+      let latitude = place.geometry.coordinates[0][1];
+      let longitude = place.geometry.coordinates[0][0];
 
       let model = document.createElement("a-entity");
 
@@ -102,7 +102,7 @@ function renderPlaces(places) {
 
       pinImage.setAttribute("src", "./assets/marker.png");
 
-      text.setAttribute("position", "0 1 0");
+      text.setAttribute("position", "0 0.8 0");
       text.setAttribute(
         "text",
         "value: " + place.properties.comment + "; align: center;  color: red;"
