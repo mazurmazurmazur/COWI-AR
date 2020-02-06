@@ -1,7 +1,12 @@
-window.onload = () => {
-  let places = staticLoadPlaces();
-  renderPlaces(places);
-};
+function fetchContact() {
+  fetch("./json/lyngby.json")
+    .then(res => res.json())
+    .then(renderPlaces);
+}
+
+// window.onload = () => {
+//   fetchContact();
+// };
 
 var x = document.getElementById("demo");
 function getLocation() {
@@ -30,77 +35,97 @@ function yourFunction() {
 
 yourFunction();
 
-function staticLoadPlaces() {
-  return [
-    {
-      name: "marker1",
-      location: {
-        lat: 55.767564,
-        lng: 12.504835
-      }
-    },
-    {
-      name: "marker2",
-      location: {
-        lat: 55.767365,
-        lng: 12.505554
-      }
-    },
-    {
-      name: "marker3",
-      location: {
-        lat: 55.766846,
-        lng: 12.506949
-      }
-    },
-    {
-      name: "marker4",
-      location: {
-        lat: 55.766604,
-        lng: 12.503194
-      }
-    },
-    {
-      name: "marker5",
-      location: {
-        lat: 55.766181,
-        lng: 12.504524
-      }
-    },
-    {
-      name: "marker6",
-      location: {
-        lat: 55.765794,
-        lng: 12.506487
-      }
-    }
-  ];
-}
+// function staticLoadPlaces() {
+//   return [
+//     {
+//       name: "marker1",
+//       location: {
+//         lat: 55.767564,
+//         lng: 12.504835
+//       }
+//     },
+//     {
+//       name: "marker2",
+//       location: {
+//         lat: 55.767365,
+//         lng: 12.505554
+//       }
+//     },
+//     {
+//       name: "marker3",
+//       location: {
+//         lat: 55.766846,
+//         lng: 12.506949
+//       }
+//     },
+//     {
+//       name: "marker4",
+//       location: {
+//         lat: 55.766604,
+//         lng: 12.503194
+//       }
+//     },
+//     {
+//       name: "marker5",
+//       location: {
+//         lat: 55.766181,
+//         lng: 12.504524
+//       }
+//     },
+//     {
+//       name: "marker6",
+//       location: {
+//         lat: 55.765794,
+//         lng: 12.506487
+//       }
+//     }
+//   ];
+// }
 
 function renderPlaces(places) {
   let scene = document.querySelector("a-scene");
 
+  console.log(places.features);
   let i = 0;
-  places.forEach(place => {
+  places.features.forEach(place => {
+    console.log(place.geometry.coordinates[0][0]);
+    console.log(place.geometry.coordinates[0][1]);
     i++;
-    let latitude = place.location.lat;
-    let longitude = place.location.lng;
+    let latitude = place.geometry.coordinates[0][0];
+    let longitude = place.geometry.coordinates[0][1];
 
-    let model = document.createElement("a-image");
+    let model = document.createElement("a-entity");
+    let text = document.createElement("a-entity");
+    let pinImage = document.createElement("a-image");
+
+    //   <a-entity rotation="-90 0 0">
+    //   <a-entity
+    //     scale="3 3 2"
+    //     position="0 0.7 0"
+    //     text="value : Nowy tekst; align: center; baseline: top; color: red;"
+    //   ></a-entity>
+    //   <a-image src="./assets/marker.png"></a-image>
+    // </a-entity>
+
     model.setAttribute(
       "gps-entity-place",
       `latitude: ${latitude}; longitude: ${longitude};`
     );
-    model.setAttribute("src", "./assets/marker.png");
-    model.setAttribute("scale", "20 20 20");
-    model.setAttribute("name", "attribute" + i);
-    model.setAttribute("title", "attribute" + i);
-    model.setAttribute("text", "attribute" + i);
+    pinImage.setAttribute("src", "./assets/marker.png");
+    text.setAttribute("scale", "3 3 2");
+    text.setAttribute("position", "0 0.7 0");
+    text.setAttribute(
+      "text",
+      "value : Nowy tekst; align: center; baseline: top; color: red;"
+    );
 
     model.addEventListener("loaded", () => {
       window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
     });
 
+    model.appendChild(text);
+    model.appendChild(pinImage);
     scene.appendChild(model);
   });
 }
+fetchContact();

@@ -1,0 +1,90 @@
+{
+  "type": "FeatureCollection",
+  "totalFeatures": 5,
+  "features": [
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.2",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[19.04335549, 49.80400422, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 2,
+        "comment": "refill station",
+        "username": "CMVadmin",
+        "created": "2020-02-05T19:01:42.001Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.1",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[19.04441246, 49.80421942, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 1,
+        "comment": "bridge",
+        "username": "CMVadmin",
+        "created": "2020-02-05T19:01:35.145Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.3",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[19.04505276, 49.80425365, 4.99180922]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 3,
+        "comment": "sub-building",
+        "username": "CMVadmin",
+        "created": "2020-02-05T19:02:07.081Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.4",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[19.04426897, 49.80411975, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 4,
+        "comment": "bank",
+        "username": "CMVadmin",
+        "created": "2020-02-05T19:02:27.606Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.5",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[19.04579842, 49.80333152, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 5,
+        "comment": "bus-stop",
+        "username": "CMVadmin",
+        "created": "2020-02-05T19:04:25.792Z",
+        "annotation": ""
+      }
+    }
+  ],
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:EPSG::4326" }
+  }
+}
