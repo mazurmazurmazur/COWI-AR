@@ -103,6 +103,8 @@ function renderPlaces(places) {
 
       pinImage.setAttribute("src", "./assets/marker.png");
 
+      pinImage.setAttribute("scale", "20 20 20");
+
       console.log(place.properties.comment);
 
       text.setAttribute(
