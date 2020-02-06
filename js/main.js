@@ -101,11 +101,6 @@ function renderPlaces(places) {
 
       model.setAttribute("src", "./assets/marker.png");
 
-      pinImage.setAttribute("src", "./assets/marker.png");
-
-      model.setAttribute("width", 5);
-      model.setAttribute("height", 5);
-
       text.setAttribute(
         "text",
         "value: " + place.properties.comment + "; align: center;  color: red;"
