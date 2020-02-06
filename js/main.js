@@ -91,7 +91,6 @@ function renderPlaces(places) {
       let longitude = place.geometry.coordinates[0][0];
 
       let model = document.createElement("a-entity");
-
       let text = document.createElement("a-entity");
       let pinImage = document.createElement("a-image");
 
@@ -102,8 +101,9 @@ function renderPlaces(places) {
 
       pinImage.setAttribute("src", "./assets/marker.png");
 
+      console.log(place.properties.comment);
       text.setAttribute("position", "0 0.8 0");
-      text.setAttribute("scale", "2 2 1");
+      text.setAttribute("scale", "2 2");
       text.setAttribute(
         "text",
         "value: " + place.properties.comment + "; align: center;  color: red;"
