@@ -4,10 +4,6 @@ function fetchContact() {
     .then(renderPlaces);
 }
 
-// window.onload = () => {
-//   fetchContact();
-// };
-
 var x = document.getElementById("demo");
 function getLocation() {
   if (navigator.geolocation) {
@@ -86,46 +82,39 @@ function renderPlaces(places) {
   let scene = document.querySelector("a-scene");
 
   console.log(places.features);
-  let i = 0;
-  places.features.forEach(place => {
-    console.log(place.geometry.coordinates[0][0]);
-    console.log(place.geometry.coordinates[0][1]);
-    i++;
-    let latitude = place.geometry.coordinates[0][0];
-    let longitude = place.geometry.coordinates[0][1];
 
-    let model = document.createElement("a-entity");
-    let text = document.createElement("a-entity");
-    let pinImage = document.createElement("a-image");
+  window.onload = () => {
+    places.features.forEach(place => {
+      console.log(place.geometry.coordinates[0][0]);
+      console.log(place.geometry.coordinates[0][1]);
+      let latitude = place.geometry.coordinates[0][0];
+      let longitude = place.geometry.coordinates[0][1];
 
-    //   <a-entity rotation="-90 0 0">
-    //   <a-entity
-    //     scale="3 3 2"
-    //     position="0 0.7 0"
-    //     text="value : Nowy tekst; align: center; baseline: top; color: red;"
-    //   ></a-entity>
-    //   <a-image src="./assets/marker.png"></a-image>
-    // </a-entity>
+      let model = document.createElement("a-entity");
 
-    model.setAttribute(
-      "gps-entity-place",
-      `latitude: ${latitude}; longitude: ${longitude};`
-    );
-    pinImage.setAttribute("src", "./assets/marker.png");
-    text.setAttribute("scale", "3 3 2");
-    text.setAttribute("position", "0 0.7 0");
-    text.setAttribute(
-      "text",
-      "value : Nowy tekst; align: center; baseline: top; color: red;"
-    );
+      let text = document.createElement("a-entity");
+      let pinImage = document.createElement("a-image");
 
-    model.addEventListener("loaded", () => {
-      window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
+      model.setAttribute(
+        "gps-entity-place",
+        `latitude: ${latitude}; longitude: ${longitude};`
+      );
+      text.setAttribute("scale", "3 3 2");
+      text.setAttribute("position", "0 0.7 0");
+      text.setAttribute(
+        "text",
+        "value : Nowy tekst; align: center; baseline: top; color: red;"
+      );
+
+      model.appendChild(text);
+      model.appendChild(pinImage);
+      scene.appendChild(model);
+
+      model.addEventListener("loaded", () => {
+        window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
+      });
     });
-
-    model.appendChild(text);
-    model.appendChild(pinImage);
-    scene.appendChild(model);
-  });
+  };
 }
+
 fetchContact();
