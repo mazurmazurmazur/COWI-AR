@@ -100,14 +100,13 @@ function renderPlaces(places) {
         `latitude: ${latitude}; longitude: ${longitude};`
       );
 
-      text.setAttribute("scale", "20 20 2");
-      text.setAttribute("position", "0 0.7 0");
+      pinImage.setAttribute("src", "./assets/marker.png");
+
+      text.setAttribute("position", "0 1 0");
       text.setAttribute(
         "text",
         "value : Nowy tekst; align: center; baseline: top; color: red;"
       );
-
-      pinImage.setAttribute("src", "./assets/marker.png");
 
       model.addEventListener("loaded", () => {
         window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
