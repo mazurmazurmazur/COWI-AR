@@ -27,6 +27,12 @@
       embedded
       arjs="sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;"
     >
+      <a-entity
+        scale="9 9 1"
+        gps-entity-place="latitude: 55.766632, longtitude: 12.505333"
+      >
+        <a-image src="./assets/marker.png"></a-image>
+      </a-entity>
       <a-camera gps-camera rotation-reader> </a-camera>
     </a-scene>
 
