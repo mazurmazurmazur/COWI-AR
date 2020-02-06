@@ -103,8 +103,8 @@ function renderPlaces(places) {
 
       pinImage.setAttribute("src", "./assets/marker.png");
 
-      pinImage.setAttribute("width", 5);
-      pinImage.setAttribute("height", 5);
+      model.setAttribute("width", 5);
+      model.setAttribute("height", 5);
 
       text.setAttribute(
         "text",
