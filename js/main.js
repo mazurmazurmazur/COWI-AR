@@ -106,9 +106,7 @@ function renderPlaces(places) {
       model.setAttribute("scale", "4 4 4");
       text.setAttribute(
         "text",
-        "value: " +
-          place.properties.comment +
-          "; align: center;  color: red; wrapCount: 80;"
+        "value: " + place.properties.comment + "; align: center;  color: red;"
       );
       text.setAttribute("scale", "4 4 4");
 
