@@ -108,6 +108,8 @@ function renderPlaces(places) {
         "text",
         "value: " + place.properties.comment + "; align: center;  color: red;"
       );
+
+      console.log("printing comment: " + place.properties.comment);
       text.setAttribute("scale", "8 8 8");
 
       text.setAttribute("position", "0 0.8 0");
