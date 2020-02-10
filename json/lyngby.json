@@ -77,7 +77,7 @@
       "geometry_name": "geom",
       "properties": {
         "id": 5,
-        "comment": "bus stop",
+        "comment": "bus-stop",
         "username": "CMVadmin",
         "created": "2020-02-05T19:04:25.792Z",
         "annotation": ""
