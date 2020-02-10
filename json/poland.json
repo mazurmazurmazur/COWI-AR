@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "totalFeatures": 12,
+  "totalFeatures": 17,
   "features": [
     {
       "type": "Feature",
@@ -191,6 +191,87 @@
         "comment": "IGGI",
         "username": "CMVadmin",
         "created": "2020-02-10T12:42:45.473Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.13",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[12.50411101, 55.76774801, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 13,
+        "comment": "lyngby1",
+        "username": "CMVadmin",
+        "created": "2020-02-05T19:01:42.001Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.14",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[12.50490501, 55.76753101, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 14,
+        "comment": "lyngby2",
+        "username": "CMVadmin",
+        "created": "2020-02-05T19:01:35.145Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.15",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[12.50557601, 55.76730801, 4.99180922]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 15,
+        "comment": "lyngby3",
+        "username": "CMVadmin",
+        "created": "2020-02-05T19:02:07.081Z",
+        "annotation": ""
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.16",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[12.50456101, 55.76753701, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 16,
+        "comment": "lyngby4",
+        "username": "CMVadmin",
+        "created": "2020-02-05T19:04:25.792Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.17",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[12.504819, 55.766268, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 17,
+        "comment": "danske-bank",
+        "username": "CMVadmin",
+        "created": "2020-02-05T19:01:35.145Z",
         "annotation": ""
       }
     }
