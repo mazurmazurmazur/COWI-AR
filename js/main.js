@@ -21,7 +21,7 @@ function showPosition(position) {
     "<br>Longitude: " +
     position.coords.longitude +
     "<br>" +
-    document.getElementById("pointer").getAttribute("distance");
+    document.getElementById("pointer2").getAttribute("distance");
 }
 
 function yourFunction() {
@@ -83,9 +83,10 @@ function renderPlaces(places) {
   let scene = document.querySelector("a-scene");
 
   console.log(places.features);
-
+  let i = 0;
   window.onload = () => {
     places.features.forEach(place => {
+      i++;
       console.log("longtitude" + place.geometry.coordinates[0][0]);
       console.log(place.geometry.coordinates[0][1]);
       let latitude = place.geometry.coordinates[0][0];
@@ -105,7 +106,7 @@ function renderPlaces(places) {
       console.log(`latitude: ${longitude}; longitude: ${latitude};`);
 
       pinImage.setAttribute("src", "./assets/marker.png");
-      model.id = "pointer";
+      model.id = "pointer" + i;
       model.setAttribute("scale", "4 4 4");
       text.setAttribute(
         "text",
