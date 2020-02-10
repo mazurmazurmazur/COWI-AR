@@ -96,7 +96,7 @@ function renderPlaces(places) {
 
       model.setAttribute(
         "gps-entity-place",
-        `latitude: ${latitude}; longitude: ${longitude};`
+        `latitude: ${longitude}; longitude: ${latitude};`
       );
 
       model.setAttribute("src", "./assets/marker.png");
