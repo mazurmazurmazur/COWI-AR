@@ -99,6 +99,8 @@ function renderPlaces(places) {
         `latitude: ${longitude}; longitude: ${latitude};`
       );
 
+      console.log(`latitude: ${longitude}; longitude: ${latitude};`);
+
       model.setAttribute("src", "./assets/marker.png");
 
       text.setAttribute(
