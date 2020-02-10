@@ -1,6 +1,6 @@
 {
   "type": "FeatureCollection",
-  "totalFeatures": 5,
+  "totalFeatures": 12,
   "features": [
     {
       "type": "Feature",
@@ -79,6 +79,118 @@
         "comment": "bus-stop",
         "username": "CMVadmin",
         "created": "2020-02-05T19:04:25.792Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.8",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[37.81397606, 48.98201479, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 8,
+        "comment": "ILLI",
+        "username": "CMVadmin",
+        "created": "2020-02-10T12:40:55.456Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.9",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[37.81748864, 48.98016467, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 9,
+        "comment": "ILLI",
+        "username": "CMVadmin",
+        "created": "2020-02-10T12:41:04.063Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.10",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[37.82672493, 48.95955177, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 10,
+        "comment": "IGGI",
+        "username": "CMVadmin",
+        "created": "2020-02-10T12:42:17.252Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.6",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[37.81523685, 48.98134016, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 6,
+        "comment": "ILLI",
+        "username": "CMVadmin",
+        "created": "2020-02-10T12:40:09.862Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.7",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[37.81494055, 48.9810715, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 7,
+        "comment": "ILLI",
+        "username": "CMVadmin",
+        "created": "2020-02-10T12:40:19.804Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.11",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[37.8290929, 48.9582712, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 11,
+        "comment": "IGGI",
+        "username": "CMVadmin",
+        "created": "2020-02-10T12:42:28.131Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.12",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[37.82566707, 48.9617832, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 12,
+        "comment": "IGGI",
+        "username": "CMVadmin",
+        "created": "2020-02-10T12:42:45.473Z",
         "annotation": ""
       }
     }
