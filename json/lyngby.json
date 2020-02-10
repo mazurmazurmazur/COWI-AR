@@ -66,6 +66,22 @@
         "created": "2020-02-05T19:04:25.792Z",
         "annotation": ""
       }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.5",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[12.504819, 55.766268, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 5,
+        "comment": "ELEPHANT",
+        "username": "CMVadmin",
+        "created": "2020-02-05T19:01:35.145Z",
+        "annotation": ""
+      }
     }
   ],
   "crs": {
