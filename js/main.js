@@ -115,7 +115,7 @@ function renderPlaces(places) {
         window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
       });
 
-      // model.appendChild(text);
+      model.appendChild(text);
       model.appendChild(pinImage);
       scene.appendChild(model);
     });
