@@ -1,5 +1,3 @@
-require("aframe-look-at-component");
-
 function fetchContact() {
   fetch("./json/poland.json")
     .then(res => res.json())
