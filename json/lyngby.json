@@ -50,22 +50,7 @@
         "annotation": ""
       }
     },
-    {
-      "type": "Feature",
-      "id": "dk_wfs_annotation_template.4",
-      "geometry": {
-        "type": "MultiPoint",
-        "coordinates": [[12.50407901, 55.76628201, 0]]
-      },
-      "geometry_name": "geom",
-      "properties": {
-        "id": 4,
-        "comment": "bankbank",
-        "username": "CMVadmin",
-        "created": "2020-02-05T19:02:27.606Z",
-        "annotation": ""
-      }
-    },
+
     {
       "type": "Feature",
       "id": "dk_wfs_annotation_template.5",
@@ -75,10 +60,26 @@
       },
       "geometry_name": "geom",
       "properties": {
-        "id": 5,
+        "id": 4,
         "comment": "bus-stop",
         "username": "CMVadmin",
         "created": "2020-02-05T19:04:25.792Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.4",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[12.50407901, 55.76628201, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 5,
+        "comment": "bankbank",
+        "username": "CMVadmin",
+        "created": "2020-02-05T19:02:27.606Z",
         "annotation": ""
       }
     }
