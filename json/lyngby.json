@@ -71,7 +71,7 @@
       "id": "dk_wfs_annotation_template.5",
       "geometry": {
         "type": "MultiPoint",
-        "coordinates": [[12.50533301, 55.76663201, 0]]
+        "coordinates": [[12.50456101, 55.76753701, 0]]
       },
       "geometry_name": "geom",
       "properties": {
