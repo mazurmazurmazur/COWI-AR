@@ -61,7 +61,7 @@
       "geometry_name": "geom",
       "properties": {
         "id": 4,
-        "comment": "bus-stop",
+        "comment": "danske-bank",
         "username": "CMVadmin",
         "created": "2020-02-05T19:04:25.792Z",
         "annotation": ""
@@ -77,7 +77,7 @@
       "geometry_name": "geom",
       "properties": {
         "id": 5,
-        "comment": "Danske Bank",
+        "comment": "bus stop",
         "username": "CMVadmin",
         "created": "2020-02-05T19:04:25.792Z",
         "annotation": ""
