@@ -18,7 +18,9 @@ function showPosition(position) {
     "Latitude: " +
     position.coords.latitude +
     "<br>Longitude: " +
-    position.coords.longitude;
+    position.coords.longitude +
+    "<br>" +
+    document.getElementById("pointer").getAttribute("distance");
 }
 
 function yourFunction() {
@@ -98,6 +100,8 @@ function renderPlaces(places) {
         "gps-entity-place",
         `latitude: ${longitude}; longitude: ${latitude};`
       );
+
+      model.setAttribute("distance");
 
       console.log(`latitude: ${longitude}; longitude: ${latitude};`);
 
