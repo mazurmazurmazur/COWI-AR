@@ -69,17 +69,17 @@
     },
     {
       "type": "Feature",
-      "id": "dk_wfs_annotation_template.4",
+      "id": "dk_wfs_annotation_template.5",
       "geometry": {
         "type": "MultiPoint",
-        "coordinates": [[12.50407901, 55.76628201, 0]]
+        "coordinates": [[12.50456101, 55.76753701, 0]]
       },
       "geometry_name": "geom",
       "properties": {
         "id": 5,
-        "comment": "bankbank",
+        "comment": "new stuff",
         "username": "CMVadmin",
-        "created": "2020-02-05T19:02:27.606Z",
+        "created": "2020-02-05T19:04:25.792Z",
         "annotation": ""
       }
     }
