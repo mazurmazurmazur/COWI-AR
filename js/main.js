@@ -90,7 +90,7 @@ function renderPlaces(places) {
       let latitude = place.geometry.coordinates[0][0];
       let longitude = place.geometry.coordinates[0][1];
 
-      let model = document.createElement("a-image");
+      let model = document.createElement("a-entity");
       let text = document.createElement("a-entity");
       let pinImage = document.createElement("a-image");
 
@@ -101,7 +101,7 @@ function renderPlaces(places) {
 
       console.log(`latitude: ${longitude}; longitude: ${latitude};`);
 
-      model.setAttribute("src", "./assets/marker.png");
+      pinImage.setAttribute("src", "./assets/marker.png");
       model.id = "pointer";
       model.setAttribute("scale", "4 4 4");
       text.setAttribute(
@@ -116,7 +116,7 @@ function renderPlaces(places) {
       });
 
       // model.appendChild(text);
-      // model.appendChild(pinImage);
+      model.appendChild(pinImage);
       scene.appendChild(model);
     });
   };
