@@ -6,10 +6,12 @@
   "scripts": {
     "start": "node server",
     "server": "nodemon server",
-    "client": "npm start --prefix client"},
+    "client": "npm start --prefix client"
+  },
   "author": "mazur",
   "license": "ISC",
   "dependencies": {
+    "aframe-look-at-component": "^0.8.0",
     "express": "^4.17.1"
   }
 }

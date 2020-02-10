@@ -1,3 +1,5 @@
+require("aframe-look-at-component");
+
 function fetchContact() {
   fetch("./json/poland.json")
     .then(res => res.json())
@@ -108,6 +110,7 @@ function renderPlaces(places) {
         "text",
         "value: " + place.properties.comment + "; align: center;  color: red;"
       );
+      text.setAttribute("look-at", "[camera]");
 
       console.log("printing comment: " + place.properties.comment);
       text.setAttribute("scale", "8 8 8");
