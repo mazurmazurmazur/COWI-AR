@@ -108,7 +108,7 @@ function renderPlaces(places) {
         "text",
         "value: " + place.properties.comment + "; align: center;  color: red;"
       );
-      // text.setAttribute("look-at", "[camera]");
+      text.setAttribute("look-at", "#camra");
 
       console.log("printing comment: " + place.properties.comment);
       text.setAttribute("scale", "8 8 8");
