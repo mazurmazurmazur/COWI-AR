@@ -104,7 +104,6 @@ function renderPlaces(places) {
       model.setAttribute("src", "./assets/marker.png");
       model.id = "pointer";
       model.setAttribute("scale", "2 2 2");
-
       text.setAttribute(
         "text",
         "value: " + place.properties.comment + "; align: center;  color: red;"
