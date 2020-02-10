@@ -1,7 +1,8 @@
 function fetchContact() {
   fetch("./json/poland.json")
     .then(res => res.json())
-    .then(renderPlaces);
+    .then(renderPlaces)
+    .then(yourFunction);
 }
 
 var x = document.getElementById("demo");
@@ -20,7 +21,7 @@ function showPosition(position) {
     "<br>Longitude: " +
     position.coords.longitude +
     "<br>" +
-    document.getElementById("pointer");
+    document.getElementById("pointer").getAttribute("distance");
 }
 
 function yourFunction() {
@@ -30,8 +31,6 @@ function yourFunction() {
 
   setTimeout(yourFunction, 1000);
 }
-
-yourFunction();
 
 // function staticLoadPlaces() {
 //   return [
