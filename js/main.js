@@ -108,7 +108,7 @@ function renderPlaces(places) {
         "text",
         "value: " + place.properties.comment + "; align: center;  color: red;"
       );
-      text.setAttribute("scale", "4 4 4");
+      text.setAttribute("scale", "8 8 8");
 
       text.setAttribute("position", "0 0.8 0");
 
