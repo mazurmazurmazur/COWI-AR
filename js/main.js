@@ -1,5 +1,5 @@
 function fetchContact() {
-  fetch("./json/lyngby.json")
+  fetch("./json/poland.json")
     .then(res => res.json())
     .then(renderPlaces);
 }
