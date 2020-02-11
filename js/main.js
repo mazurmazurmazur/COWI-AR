@@ -31,6 +31,7 @@ function yourFunction() {
   // do whatever you like here
 
   getLocation();
+  printDist();
 
   setTimeout(yourFunction, 1000);
 }
@@ -89,15 +90,14 @@ function renderPlaces(places) {
     //   `dist: ${distTest.getAttribute("distanceMsg")}`
     // );
 
-    function printDist() {
-      alert(`distance at beginning: ${distanceTest.getAttribute("distance")}`);
-    }
     document
       .getElementById("distTestText")
       .setAttribute("text", `value: freshText; color: pink; align: center;`);
-
-    printDist();
   };
+}
+
+function printDist() {
+  alert(`distance at beginning: ${distanceTest.getAttribute("distance")}`);
 }
 
 fetchContact();
