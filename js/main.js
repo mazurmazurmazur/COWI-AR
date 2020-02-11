@@ -43,6 +43,7 @@ function yourFunction() {
 }
 
 function renderPlaces(places) {
+  console.log("sthng2");
   let scene = document.querySelector("a-scene");
 
   window.onload = () => {
