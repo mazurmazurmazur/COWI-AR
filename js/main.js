@@ -87,13 +87,13 @@ function renderPlaces(places) {
       scene.appendChild(model);
     });
 
-    let distTest = document.getElementById("distanceTest");
-    let newTextNode = document.createTextNode(
-      `dist: ${distTest.getAttribute("distanceMsg")}`
-    );
-    document
-      .getElementById("distTestText")
-      .setAttribute("text", `value: ${newTextNode}`);
+    // let distTest = document.getElementById("distanceTest");
+    // let newTextNode = document.createTextNode(
+    //   `dist: ${distTest.getAttribute("distanceMsg")}`
+    // );
+    // document
+    //   .getElementById("distTestText")
+    //   .setAttribute("text", `value: ${newTextNode}`);
   };
 }
 
