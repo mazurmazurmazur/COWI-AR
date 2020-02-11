@@ -37,6 +37,7 @@ function yourFunction() {
   // );
 
   getLocation();
+  console.log("something");
 
   setTimeout(yourFunction, 1000);
 }
