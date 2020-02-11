@@ -30,14 +30,17 @@
       embedded
       arjs="sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;"
     >
-      <a-image
+      <a-entity
         id="distanceTest"
-        src="assets/images/markr2.png"
         scale="3 3 3"
         gps-entity-place="latitude: 55.766666; longitude: 12.503650;"
         distance
         distanceMsg
-      ></a-image>
+        look-at="#camra"
+      >
+        <a-entity text=""></a-entity
+        ><a-image src="assets/images/markr2.png"></a-image
+      ></a-entity>
 
       <a-camera id="camra" gps-camera rotation-reader> </a-camera>
     </a-scene>

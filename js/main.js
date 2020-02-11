@@ -15,8 +15,8 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  let newTextNode = document.createTextNode(`
-  ${document.getElementById("distanceTest").getAttribute("distanceMsg")}`);
+  // let newTextNode = document.createTextNode(`
+  // ${document.getElementById("distanceTest").getAttribute("distanceMsg")}`);
 
   x.innerHTML =
     "Latitude: " +
@@ -24,7 +24,7 @@ function showPosition(position) {
     "<br>Longitude: " +
     position.coords.longitude;
 
-  x.appendChild(newTextNode);
+  // x.appendChild(newTextNode);
 }
 
 function yourFunction() {
@@ -86,6 +86,12 @@ function renderPlaces(places) {
       model.appendChild(pinImage);
       scene.appendChild(model);
     });
+
+    let distTest = document.getElementById("distanceTest");
+    let newTextNode = document.createTextNode(
+      `dist: ${distTest.getAttribute("distanceMsg")}`
+    );
+    distTest.setAttribute(`value: ${newTextNode}`);
   };
 }
 
