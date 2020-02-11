@@ -97,7 +97,9 @@ function renderPlaces(places) {
 }
 
 function printDist() {
-  alert(`distance at beginning: ${distanceTest.getAttribute("distance")}`);
+  console.log(
+    `distance at beginning: ${distanceTest.getAttribute("distance")}`
+  );
 }
 
 fetchContact();
