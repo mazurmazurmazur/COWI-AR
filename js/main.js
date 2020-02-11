@@ -33,7 +33,7 @@ function yourFunction() {
   let distTest = document.getElementById("distTestText");
   distTest.setAttribute(
     "text",
-    "value: changing text; color: orange; align: center;"
+    "value: " + newTextNode + " MTRS; color: orange; align: center;"
   );
 
   getLocation();
