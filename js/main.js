@@ -46,7 +46,7 @@ function renderPlaces(places) {
       let model = document.createElement("a-entity");
       let text = document.createElement("a-entity");
       let pinImage = document.createElement("a-image");
-      let dist = document.createElement("a-entity");
+      // let dist = document.createElement("a-entity");
 
       model.setAttribute(
         "gps-entity-place",
@@ -64,9 +64,9 @@ function renderPlaces(places) {
       //     "distanceMsg"
       //   )} "; align: center; color: green;`
       // );
-      dist.setAttribute("look-at", "#camra");
-      dist.setAttribute("scale", "8 8 8");
-      dist.setAttribute("position", "0 1.1 0");
+      // dist.setAttribute("look-at", "#camra");
+      // dist.setAttribute("scale", "8 8 8");
+      // dist.setAttribute("position", "0 1.1 0");
 
       text.setAttribute(
         "text",
