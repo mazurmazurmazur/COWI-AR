@@ -1,8 +1,7 @@
 function fetchContact() {
   fetch("./json/poland.json")
     .then(res => res.json())
-    .then(renderPlaces)
-    .then(yourFunction);
+    .then(renderPlaces);
 }
 
 var x = document.getElementById("demo");
