@@ -27,8 +27,8 @@ function showPosition(position) {
 function yourFunction() {
   // do whatever you like here
 
-  let newTextNode = document.createTextNode(`
-   ${document.getElementById("distanceTest").getAttribute("distanceMsg")}`);
+  let newTextNode = `
+   ${document.getElementById("distanceTest").getAttribute("distanceMsg")}`;
 
   let distTest = document.getElementById("distTestText");
   distTest.setAttribute(
