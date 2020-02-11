@@ -32,6 +32,7 @@ function yourFunction() {
 
   getLocation();
   printDist();
+  console.log("recurrent called");
 
   setTimeout(yourFunction, 1000);
 }
@@ -98,7 +99,7 @@ function renderPlaces(places) {
 
 function printDist() {
   console.log(
-    `distance at beginning: ${distanceTest.getAttribute("distance")}`
+    `distance at beginning: ${distanceTest.getAttribute("distanceMsg")}`
   );
 }
 
