@@ -19,8 +19,8 @@ function showPosition(position) {
     "Latitude: " +
     position.coords.latitude +
     "<br>Longitude: " +
-    position.coords.longitude;
-  +"<br>ABCD" +
+    position.coords.longitude +
+    "<br>ABCD" +
     document
       .getElementById("distanceTest")
       .getAttribute("distanceMsg")
