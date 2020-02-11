@@ -90,9 +90,7 @@ function renderPlaces(places) {
     // );
 
     function printDist() {
-      console.log(
-        ` distance at beginning: ${distanceTest.getAttribute("distance")}`
-      );
+      alert(`distance at beginning: ${distanceTest.getAttribute("distance")}`);
     }
     document
       .getElementById("distTestText")
