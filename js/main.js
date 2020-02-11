@@ -24,10 +24,7 @@ function showPosition(position) {
     "<br>Longitude: " +
     position.coords.longitude;
 
-  let distTest = document.getElementById("distanceTest");
-  distTest.setAttribute(
-    "text",
-    `value: changing text; color: pink; align: center;`
+ 
   );
 
   // x.appendChild(newTextNode);
@@ -35,6 +32,11 @@ function showPosition(position) {
 
 function yourFunction() {
   // do whatever you like here
+
+  let distTest = document.getElementById("distanceTest");
+  distTest.setAttribute(
+    "text",
+    `value: changing text; color: pink; align: center;`)
 
   getLocation();
 
