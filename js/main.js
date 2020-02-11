@@ -99,7 +99,7 @@ function renderPlaces(places) {
 function printDist() {
   let distTest = document.getElementById("distanceTest");
 
-  console.log(`${distTest.getAttribute("id")}`);
+  console.log(`${distTest.getAttribute("distanceMsg")}`);
 }
 
 fetchContact();
