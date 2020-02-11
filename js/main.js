@@ -38,8 +38,6 @@ function yourFunction() {
 function renderPlaces(places) {
   let scene = document.querySelector("a-scene");
 
-  console.log(places.features);
-
   window.onload = () => {
     places.features.forEach(place => {
       let latitude = place.geometry.coordinates[0][0];
@@ -61,12 +59,12 @@ function renderPlaces(places) {
         window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
       });
 
-      dist.setAttribute(
-        "text",
-        `value: "I11 ${model.getAttribute(
-          "distanceMsg"
-        )} "; align: center; color: green;`
-      );
+      // dist.setAttribute(
+      //   "text",
+      //   `value: "I11 ${model.getAttribute(
+      //     "distanceMsg"
+      //   )} "; align: center; color: green;`
+      // );
       dist.setAttribute("look-at", "#camra");
       dist.setAttribute("scale", "8 8 8");
       dist.setAttribute("position", "0 1.1 0");
@@ -81,7 +79,7 @@ function renderPlaces(places) {
 
       pinImage.setAttribute("src", "./assets/marker.png");
 
-      model.appendChild(dist);
+      // model.appendChild(dist);
       model.appendChild(text);
       model.appendChild(pinImage);
       scene.appendChild(model);
