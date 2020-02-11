@@ -27,14 +27,14 @@ function showPosition(position) {
 function yourFunction() {
   // do whatever you like here
 
-  let newTextNode = `
-   ${document.getElementById("distanceTest").getAttribute("distanceMsg")}`;
+  // let newTextNode = `
+  //  ${document.getElementById("distanceTest").getAttribute("distanceMsg")}`;
 
-  let distTest = document.getElementById("distTestText");
-  distTest.setAttribute(
-    "text",
-    "value: " + newTextNode.textContent + " MTRS; color: orange; align: center;"
-  );
+  // let distTest = document.getElementById("distTestText");
+  // distTest.setAttribute(
+  //   "text",
+  //   "value: " + newTextNode.textContent + " MTRS; color: orange; align: center;"
+  // );
 
   getLocation();
 
@@ -94,10 +94,6 @@ function renderPlaces(places) {
     //   `dist: ${distTest.getAttribute("distanceMsg")}`
     // );
   };
-}
-
-function printDist() {
-  console.log(distTest);
 }
 
 fetchContact();
