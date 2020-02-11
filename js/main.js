@@ -64,12 +64,7 @@ function renderPlaces(places) {
         window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
       });
 
-      dist.setAttribute(
-        "text",
-        `value: "I11 ${model.getAttribute(
-          "distanceMsg"
-        )}" ; align: center; color: green;`
-      );
+      dist.setAttribute("text", `value: "I11"; align: center; color: green;`);
       dist.setAttribute("look-at", "#camra");
       dist.setAttribute("scale", "8 8 8");
       dist.setAttribute("position", "0 0.9 0");
