@@ -48,6 +48,7 @@ function renderPlaces(places) {
     places.features.forEach(place => {
       let latitude = place.geometry.coordinates[0][0];
       let longitude = place.geometry.coordinates[0][1];
+      console.log(`latitude: ${place.geometry.coordinates[(0, 0)]}`);
 
       let model = document.createElement("a-entity");
       let text = document.createElement("a-entity");
