@@ -82,7 +82,7 @@ function renderPlaces(places) {
 
       pinImage.setAttribute("src", "./assets/marker.png");
 
-      model.appendChild(dist);
+      // model.appendChild(dist);
       model.appendChild(text);
       model.appendChild(pinImage);
       scene.appendChild(model);
