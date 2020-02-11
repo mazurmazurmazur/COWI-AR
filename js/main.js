@@ -20,7 +20,7 @@ function showPosition(position) {
     position.coords.latitude +
     "<br>Longitude: " +
     position.coords.longitude;
-  +"<br>" + document.getElementById("testDistance").getAttribute("distanceMsg");
+  +"<br>" + document.getElementById("testDistance").getAttribute("src");
 }
 
 function yourFunction() {
