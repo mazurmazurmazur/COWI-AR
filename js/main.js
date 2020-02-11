@@ -19,9 +19,9 @@ function showPosition(position) {
     "Latitude: " +
     position.coords.latitude +
     "<br>Longitude: " +
-    position.coords.longitude +
-    "<br>" +
-    document.getElementById("pointer2").getAttribute("distance");
+    position.coords.longitude;
+  // "<br>" +
+  // document.getElementById("pointer2").getAttribute("distance");
 }
 
 function yourFunction() {
@@ -31,53 +31,6 @@ function yourFunction() {
 
   setTimeout(yourFunction, 1000);
 }
-
-// function staticLoadPlaces() {
-//   return [
-//     {
-//       name: "marker1",
-//       location: {
-//         lat: 55.767564,
-//         lng: 12.504835
-//       }
-//     },
-//     {
-//       name: "marker2",
-//       location: {
-//         lat: 55.767365,
-//         lng: 12.505554
-//       }
-//     },
-//     {
-//       name: "marker3",
-//       location: {
-//         lat: 55.766846,
-//         lng: 12.506949
-//       }
-//     },
-//     {
-//       name: "marker4",
-//       location: {
-//         lat: 55.766604,
-//         lng: 12.503194
-//       }
-//     },
-//     {
-//       name: "marker5",
-//       location: {
-//         lat: 55.766181,
-//         lng: 12.504524
-//       }
-//     },
-//     {
-//       name: "marker6",
-//       location: {
-//         lat: 55.765794,
-//         lng: 12.506487
-//       }
-//     }
-//   ];
-// }
 
 function renderPlaces(places) {
   let scene = document.querySelector("a-scene");
