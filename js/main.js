@@ -91,7 +91,9 @@ function renderPlaces(places) {
     let newTextNode = document.createTextNode(
       `dist: ${distTest.getAttribute("distanceMsg")}`
     );
-    distTest.setAttribute(`value: ${newTextNode}`);
+    document
+      .getElementById("distTestText")
+      .setAttribute(`value: ${newTextNode}`);
   };
 }
 
