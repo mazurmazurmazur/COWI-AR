@@ -31,8 +31,6 @@ function yourFunction() {
   // do whatever you like here
 
   getLocation();
-  printDist();
-  console.log("recurrent called");
 
   setTimeout(yourFunction, 1000);
 }
