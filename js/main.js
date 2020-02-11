@@ -15,14 +15,20 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  // let newTextNode = document.createTextNode(`
-  // ${document.getElementById("distanceTest").getAttribute("distanceMsg")}`);
+  let newTextNode = document.createTextNode(`
+   ${document.getElementById("distanceTest").getAttribute("distanceMsg")}`);
 
   x.innerHTML =
     "Latitude: " +
     position.coords.latitude +
     "<br>Longitude: " +
     position.coords.longitude;
+
+  let distTest = document.getElementById("distanceTest");
+  distTest.setAttribute(
+    "text",
+    `value: changing text; color: pink; align: center;`
+  );
 
   // x.appendChild(newTextNode);
 }
@@ -87,15 +93,10 @@ function renderPlaces(places) {
     // let newTextNode = document.createTextNode(
     //   `dist: ${distTest.getAttribute("distanceMsg")}`
     // );
-
-    document
-      .getElementById("distTestText")
-      .setAttribute("text", `value: freshText; color: pink; align: center;`);
   };
 }
 
 function printDist() {
-  let distTest = document.getElementById("distanceTest");
   console.log(distTest);
 }
 
