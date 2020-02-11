@@ -88,9 +88,9 @@ function renderPlaces(places) {
     // let newTextNode = document.createTextNode(
     //   `dist: ${distTest.getAttribute("distanceMsg")}`
     // );
-    // document
-    //   .getElementById("distTestText")
-    //   .setAttribute("text", `value: ${newTextNode}`);
+    document
+      .getElementById("distTestText")
+      .setAttribute("text", `value: freshText; color: pink; align: center;`);
   };
 }
 
