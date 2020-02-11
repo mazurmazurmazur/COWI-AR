@@ -45,53 +45,55 @@ function renderPlaces(places) {
   console.log(places);
   let scene = document.querySelector("a-scene");
 
-  places.features.forEach(place => {
-    let latitude = place.geometry.coordinates[0][0];
-    let longitude = place.geometry.coordinates[0][1];
-    console.log(`latitude: ${place.geometry.coordinates[0][0]}`);
+  window.onload = () => {
+    places.features.forEach(place => {
+      let latitude = place.geometry.coordinates[0][0];
+      let longitude = place.geometry.coordinates[0][1];
+      console.log(`latitude: ${place.geometry.coordinates[0][0]}`);
 
-    let model = document.createElement("a-entity");
-    let text = document.createElement("a-entity");
-    let pinImage = document.createElement("a-image");
-    // let dist = document.createElement("a-entity");
+      let model = document.createElement("a-entity");
+      let text = document.createElement("a-entity");
+      let pinImage = document.createElement("a-image");
+      // let dist = document.createElement("a-entity");
 
-    model.setAttribute(
-      "gps-entity-place",
-      `latitude: ${longitude}; longitude: ${latitude};`
-    );
-    // model.setAttribute("distanceMsg", "");
-    model.setAttribute("scale", "4 4 4");
-    model.addEventListener("loaded", () => {
-      window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
+      model.setAttribute(
+        "gps-entity-place",
+        `latitude: ${longitude}; longitude: ${latitude};`
+      );
+      // model.setAttribute("distanceMsg", "");
+      model.setAttribute("scale", "4 4 4");
+      model.addEventListener("loaded", () => {
+        window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
+      });
+
+      // dist.setAttribute(
+      //   "text",
+      //   "value: I11 miterS; align: center; color: green;"
+      // );
+      // dist.setAttribute("look-at", "#camra");
+      // dist.setAttribute("scale", "8 8 8");
+      // dist.setAttribute("position", "0 1.1 0");
+
+      text.setAttribute(
+        "text",
+        "value: " + place.properties.comment + "; align: center;  color: red;"
+      );
+      text.setAttribute("look-at", "#camra");
+      text.setAttribute("scale", "8 8 8");
+      text.setAttribute("position", "0 0.8 0");
+
+      pinImage.setAttribute("src", "./assets/marker.png");
+
+      // model.appendChild(dist);
+      model.appendChild(text);
+      model.appendChild(pinImage);
+      scene.appendChild(model);
     });
 
-    // dist.setAttribute(
-    //   "text",
-    //   "value: I11 miterS; align: center; color: green;"
+    // let newTextNode = document.createTextNode(
+    //   `dist: ${distTest.getAttribute("distanceMsg")}`
     // );
-    // dist.setAttribute("look-at", "#camra");
-    // dist.setAttribute("scale", "8 8 8");
-    // dist.setAttribute("position", "0 1.1 0");
-
-    text.setAttribute(
-      "text",
-      "value: " + place.properties.comment + "; align: center;  color: red;"
-    );
-    text.setAttribute("look-at", "#camra");
-    text.setAttribute("scale", "8 8 8");
-    text.setAttribute("position", "0 0.8 0");
-
-    pinImage.setAttribute("src", "./assets/marker.png");
-
-    // model.appendChild(dist);
-    model.appendChild(text);
-    model.appendChild(pinImage);
-    scene.appendChild(model);
-  });
-
-  // let newTextNode = document.createTextNode(
-  //   `dist: ${distTest.getAttribute("distanceMsg")}`
-  // );
+  };
 }
 
 fetchContact();
