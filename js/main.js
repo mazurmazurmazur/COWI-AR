@@ -19,18 +19,18 @@ function showPosition(position) {
     "Latitude: " +
     position.coords.latitude +
     "<br>Longitude: " +
-    position.coords.longitude +
-    "<br>ABCD" +
-    document
-      .getElementById("distanceTest")
-      .getAttribute("distanceMsg")
-      .toString();
+    position.coords.longitude;
 }
 
 function yourFunction() {
   // do whatever you like here
 
   getLocation();
+
+  let newTextNode = document.createTextNode(`<br>ABCD" 
+  ${document.getElementById("distanceTest").getAttribute("distanceMsg")}`);
+
+  x.appendChild(newTextNode);
 
   setTimeout(yourFunction, 1000);
 }
