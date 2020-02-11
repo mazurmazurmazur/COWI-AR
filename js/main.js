@@ -39,12 +39,9 @@ function renderPlaces(places) {
   let scene = document.querySelector("a-scene");
 
   console.log(places.features);
-  let i = 0;
+
   window.onload = () => {
     places.features.forEach(place => {
-      i++;
-      console.log("longtitude" + place.geometry.coordinates[0][0]);
-      console.log(place.geometry.coordinates[0][1]);
       let latitude = place.geometry.coordinates[0][0];
       let longitude = place.geometry.coordinates[0][1];
 
@@ -64,10 +61,15 @@ function renderPlaces(places) {
         window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
       });
 
-      dist.setAttribute("text", `value: "I11"; align: center; color: green;`);
+      dist.setAttribute(
+        "text",
+        `value: "I11 ${model.getAttribute(
+          "distanceMsg"
+        )} "; align: center; color: green;`
+      );
       dist.setAttribute("look-at", "#camra");
       dist.setAttribute("scale", "8 8 8");
-      dist.setAttribute("position", "0 0.9 0");
+      dist.setAttribute("position", "0 1.1 0");
 
       text.setAttribute(
         "text",
