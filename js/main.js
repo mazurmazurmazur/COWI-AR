@@ -95,6 +95,7 @@ function renderPlaces(places) {
     document
       .getElementById("distTestText")
       .setAttribute("text", `value: freshText; color: pink; align: center;`);
+
     printDist();
   };
 }
