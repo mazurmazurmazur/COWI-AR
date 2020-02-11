@@ -15,22 +15,22 @@ function getLocation() {
 }
 
 function showPosition(position) {
+  let newTextNode = document.createTextNode(`
+  ${document.getElementById("distanceTest").getAttribute("distanceMsg")}`);
+
   x.innerHTML =
     "Latitude: " +
     position.coords.latitude +
     "<br>Longitude: " +
     position.coords.longitude;
+
+  x.appendChild(newTextNode);
 }
 
 function yourFunction() {
   // do whatever you like here
 
   getLocation();
-
-  let newTextNode = document.createTextNode(`<br>ABCD" 
-  ${document.getElementById("distanceTest").getAttribute("distanceMsg")}`);
-
-  x.appendChild(newTextNode);
 
   setTimeout(yourFunction, 1000);
 }
