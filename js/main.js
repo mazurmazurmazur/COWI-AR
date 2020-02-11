@@ -84,13 +84,20 @@ function renderPlaces(places) {
       scene.appendChild(model);
     });
 
-    // let distTest = document.getElementById("distanceTest");
+    let distTest = document.getElementById("distanceTest");
     // let newTextNode = document.createTextNode(
     //   `dist: ${distTest.getAttribute("distanceMsg")}`
     // );
+
+    function printDist() {
+      console.log(
+        ` distance at beginning: ${distanceTest.getAttribute("distance")}`
+      );
+    }
     document
       .getElementById("distTestText")
       .setAttribute("text", `value: freshText; color: pink; align: center;`);
+    printDist();
   };
 }
 
