@@ -15,9 +15,6 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  let newTextNode = document.createTextNode(`
-   ${document.getElementById("distanceTest").getAttribute("distanceMsg")}`);
-
   x.innerHTML =
     "Latitude: " +
     position.coords.latitude +
@@ -29,6 +26,9 @@ function showPosition(position) {
 
 function yourFunction() {
   // do whatever you like here
+
+  let newTextNode = document.createTextNode(`
+   ${document.getElementById("distanceTest").getAttribute("distanceMsg")}`);
 
   let distTest = document.getElementById("distTestText");
   distTest.setAttribute(
