@@ -66,7 +66,7 @@ function renderPlaces(places) {
 
       dist.setAttribute(
         "text",
-        `value: "I11 "miterS; align: center; color: green;`
+        "value: I11 miterS; align: center; color: green;"
       );
       dist.setAttribute("look-at", "#camra");
       dist.setAttribute("scale", "8 8 8");
