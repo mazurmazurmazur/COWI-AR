@@ -86,7 +86,6 @@ function renderPlaces(places) {
       scene.appendChild(model);
     });
 
-    let distTest = document.getElementById("distanceTest");
     // let newTextNode = document.createTextNode(
     //   `dist: ${distTest.getAttribute("distanceMsg")}`
     // );
@@ -98,9 +97,9 @@ function renderPlaces(places) {
 }
 
 function printDist() {
-  console.log(
-    `distance at beginning: ${distanceTest.getAttribute("distanceMsg")}`
-  );
+  let distTest = document.getElementById("distanceTest");
+
+  console.log(`distance at beginning: ${distTest.getAttribute("distanceMsg")}`);
 }
 
 fetchContact();
