@@ -58,7 +58,7 @@ function renderPlaces(places) {
         "gps-entity-place",
         `latitude: ${longitude}; longitude: ${latitude};`
       );
-      model.setAttribute("distance");
+      model.setAttribute("distanceMsg", "");
       model.setAttribute("scale", "4 4 4");
       model.addEventListener("loaded", () => {
         window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
