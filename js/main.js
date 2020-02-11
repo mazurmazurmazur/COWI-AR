@@ -30,10 +30,10 @@ function showPosition(position) {
 function yourFunction() {
   // do whatever you like here
 
-  let distTest = document.getElementById("distanceTest");
+  let distTest = document.getElementById("distTestText");
   distTest.setAttribute(
     "text",
-    "value: changing text; color: pink; align: center;"
+    "value: changing text; color: orange; align: center;"
   );
 
   getLocation();
