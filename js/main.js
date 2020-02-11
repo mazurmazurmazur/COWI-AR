@@ -93,7 +93,7 @@ function renderPlaces(places) {
     );
     document
       .getElementById("distTestText")
-      .setAttribute(`value: ${newTextNode}`);
+      .setAttribute("text", `value: ${newTextNode}`);
   };
 }
 
