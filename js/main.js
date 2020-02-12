@@ -37,6 +37,7 @@ function yourFunction() {
           "text",
           `value: ${point.getAttribute("distanceMsg")}; color: green;`
         );
+      console.log(point.getAttribute("distance"));
     }
   });
 
