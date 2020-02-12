@@ -36,7 +36,7 @@ function yourFunction() {
   // );
 
   getLocation();
-  console.log("something");
+  console.log("test recurrence");
 
   setTimeout(yourFunction, 1000);
 }
@@ -87,7 +87,7 @@ function renderPlaces(places) {
       // model.appendChild(dist);
       model.appendChild(text);
       model.appendChild(pinImage);
-      scene.appendChild(model);
+      scene.prepend(model);
     });
 
     // let newTextNode = document.createTextNode(
