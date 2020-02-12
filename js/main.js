@@ -68,6 +68,7 @@ function renderPlaces(places) {
     model.addEventListener("loaded", () => {
       window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
     });
+    model.classList.add("geoPoint");
 
     dist.setAttribute(
       "text",
