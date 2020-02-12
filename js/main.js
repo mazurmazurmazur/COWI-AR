@@ -38,6 +38,10 @@ function yourFunction() {
   //   "value: " + newTextNode.textContent + " MTRS; color: orange; align: center;"
   // );
 
+  [...document.querySelectorAll(".geoPoint")].forEach(point => {
+    console.log(point.getAttribute("distanceMsg"));
+  });
+
   getLocation();
   console.log("test recurrence");
 
