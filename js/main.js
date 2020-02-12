@@ -39,20 +39,24 @@ function yourFunction() {
   // );
 
   [...document.querySelectorAll(".geoPoint")].forEach(point => {
-    console.log(point.getAttribute("distanceMsg"));
+    point
+      .querySelector(".distDisplay")
+      .setAttribute(
+        "text",
+        `value: ${point.getAttribute("distanceMsg")}; color: green;`
+      );
   });
 
   getLocation();
   console.log("test recurrence");
 
-  setTimeout(yourFunction, 1000);
+  setTimeout(yourFunction, 2000);
 }
 
 function renderPlaces(places) {
   console.log(places);
   let scene = document.querySelector("a-scene");
 
-  let i = 0;
   places.features.forEach(place => {
     let latitude = place.geometry.coordinates[0][0];
     let longitude = place.geometry.coordinates[0][1];
@@ -74,13 +78,11 @@ function renderPlaces(places) {
     });
     model.classList.add("geoPoint");
 
-    dist.setAttribute(
-      "text",
-      "value: I11 miterS; align: center; color: green;"
-    );
+    dist.setAttribute("text", "value: Distance Loading...; align: center; ");
     dist.setAttribute("look-at", "#camra");
     dist.setAttribute("scale", "8 8 8");
     dist.setAttribute("position", "0 1.1 0");
+    dist.classList.add("distDisplay");
 
     text.setAttribute(
       "text",
@@ -96,7 +98,6 @@ function renderPlaces(places) {
     model.appendChild(text);
     model.appendChild(pinImage);
     scene.prepend(model);
-    i++;
   });
 
   // let newTextNode = document.createTextNode(
