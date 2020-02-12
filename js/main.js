@@ -27,30 +27,24 @@ function showPosition(position) {
 }
 
 function yourFunction() {
-  // do whatever you like here
-
-  // let newTextNode = `
-  //  ${document.getElementById("distanceTest").getAttribute("distanceMsg")}`;
-
-  // let distTest = document.getElementById("distTestText");
-  // distTest.setAttribute(
-  //   "text",
-  //   "value: " + newTextNode.textContent + " MTRS; color: orange; align: center;"
-  // );
-
+  ////refreshing distance above geopoints
   [...document.querySelectorAll(".geoPoint")].forEach(point => {
-    point
-      .querySelector(".distDisplay")
-      .setAttribute(
-        "text",
-        `value: ${point.getAttribute("distanceMsg")}; color: green;`
-      );
+    if (point.getAttribute("distance") < 700) {
+      //refreshing only up to 700m from the camera
+      point
+        .querySelector(".distDisplay")
+        .setAttribute(
+          "text",
+          `value: ${point.getAttribute("distanceMsg")}; color: green;`
+        );
+    }
   });
 
+  //getting current location
   getLocation();
   console.log("test recurrence");
 
-  setTimeout(yourFunction, 2000);
+  setTimeout(yourFunction, 2000); ///recurrent function, looping for ever
 }
 
 function renderPlaces(places) {
@@ -60,7 +54,6 @@ function renderPlaces(places) {
   places.features.forEach(place => {
     let latitude = place.geometry.coordinates[0][0];
     let longitude = place.geometry.coordinates[0][1];
-    console.log(`latitude: ${place.geometry.coordinates[0][0]}`);
 
     let model = document.createElement("a-entity");
     let text = document.createElement("a-entity");
@@ -100,12 +93,9 @@ function renderPlaces(places) {
     model.appendChild(pinImage);
     scene.prepend(model);
   });
-
-  // let newTextNode = document.createTextNode(
-  //   `dist: ${distTest.getAttribute("distanceMsg")}`
-  // );
 }
 
 window.onload = () => {
+  ///when aframe and three are loaded, we start populating the geopoints
   fetchContact();
 };
