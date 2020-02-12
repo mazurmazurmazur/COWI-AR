@@ -37,19 +37,16 @@ function yourFunction() {
           "text",
           `value: ${point.getAttribute("distanceMsg")}; color: green;`
         );
-      console.log(point.getAttribute("distance"));
     }
   });
 
   //getting current location
   getLocation();
-  console.log("test recurrence");
 
   setTimeout(yourFunction, 2000); ///recurrent function, looping for ever
 }
 
 function renderPlaces(places) {
-  console.log(places);
   let scene = document.querySelector("a-scene");
 
   places.features.forEach(place => {
