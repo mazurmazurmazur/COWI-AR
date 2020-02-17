@@ -126,7 +126,7 @@ function connectPoints() {
         "line",
         `start: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z}; end: ${previousPosition.x} ${previousPosition.y} ${previousPosition.z}; color: red`
       );
-    console.log(point.childNodes[1].getAttribute("text"));
+    console.log(point.getAttribute("line"));
     console.log(previousPosition);
     previousPosition = currentPosition;
   });
