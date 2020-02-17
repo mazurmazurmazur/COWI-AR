@@ -126,6 +126,11 @@ function connectPoints() {
         "line",
         `start: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z}; end: ${previousPosition.x} ${previousPosition.y} ${previousPosition.z}; color: red`
       );
+    else
+      point.setAttribute(
+        "line",
+        `start: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z}; end: 10 0 10; color: red`
+      );
     console.log(point.getAttribute("line"));
     console.log(previousPosition);
     previousPosition = currentPosition;
