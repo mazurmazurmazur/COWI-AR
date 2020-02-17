@@ -103,11 +103,12 @@ function connectPoints() {
   let geoPoints = document.querySelectorAll(".geoPoint");
   geoPoints.forEach(point => {
     let currentPosition = point.getAttribute("position");
-    point.setAttribute(
-      "line",
-      `start: ${previousPosition}; end: ${currentPosition}; color: red`
-    );
+    // point.setAttribute(
+    //   "line",
+    //   `start: ${previousPosition}; end: ${currentPosition}; color: red`
+    // );
 
+    console.log(currentPosition);
     previousPosition = currentPosition;
   });
 }
