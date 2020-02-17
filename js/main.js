@@ -109,7 +109,7 @@ function connectPoints() {
         "line",
         `start: ${previousPosition.x} ${previousPosition.y} ${previousPosition.z}; end: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z}; color: red`
       );
-
+    console.log(previousPosition);
     // console.log(currentPosition);
     previousPosition = currentPosition;
   });
