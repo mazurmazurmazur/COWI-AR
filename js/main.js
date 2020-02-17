@@ -120,7 +120,7 @@ function connectPoints() {
   let previousPosition;
   let geoPoints = document.querySelectorAll(".geoPoint");
   geoPoints.forEach(point => {
-    let currentPosition = point.getAttribute("position");
+    let currentPosition = point.childNodes[1].getAttribute("position");
     if (previousPosition)
       point.setAttribute(
         "line",
