@@ -51,6 +51,7 @@ function renderPlaces(places) {
   places.features.forEach(place => {
     let latitude = place.geometry.coordinates[0][0];
     let longitude = place.geometry.coordinates[0][1];
+    let altitude = place.geometry.coordinates[0][2];
 
     let model = document.createElement("a-entity");
     let text = document.createElement("a-entity");
@@ -64,7 +65,7 @@ function renderPlaces(places) {
     model.setAttribute("distanceMsg", "");
     model.setAttribute("distance", 0);
     model.setAttribute("scale", "4 4 4");
-    model.setAttribute("position", "0 0 0");
+    model.setAttribute("position", `0 ${altitude} 0`);
     model.addEventListener("loaded", () => {
       window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
     });

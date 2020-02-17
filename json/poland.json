@@ -199,7 +199,7 @@
       "id": "dk_wfs_annotation_template.13",
       "geometry": {
         "type": "MultiPoint",
-        "coordinates": [[12.50411101, 55.76774801, 0]]
+        "coordinates": [[12.50411101, 55.76774801, 8]]
       },
       "geometry_name": "geom",
       "properties": {
@@ -248,7 +248,7 @@
       "id": "dk_wfs_annotation_template.16",
       "geometry": {
         "type": "MultiPoint",
-        "coordinates": [[12.50456101, 55.76753701, 0]]
+        "coordinates": [[12.50456101, 55.76753701, 12]]
       },
       "geometry_name": "geom",
       "properties": {
