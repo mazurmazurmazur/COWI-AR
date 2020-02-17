@@ -1,5 +1,22 @@
 "use strict";
 
+navigator.geolocation.getCurrentPosition = fn => {
+  setTimeout(() => {
+    fn({
+      coords: {
+        accuracy: 40,
+        altitude: null,
+        altitudeAccuracy: null,
+        heading: null,
+        latitude: 49.80411975,
+        longitude: 19.04426897,
+        speed: null
+      },
+      timestamp: Date.now()
+    });
+  }, 2912);
+};
+
 function fetchContact() {
   fetch("./json/poland.json")
     .then(res => res.json())
