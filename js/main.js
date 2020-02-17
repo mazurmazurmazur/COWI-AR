@@ -82,7 +82,7 @@ function renderPlaces(places) {
     model.setAttribute("distanceMsg", "");
     model.setAttribute("distance", 0);
     model.setAttribute("scale", "4 4 4");
-    model.setAttribute("position", `0 0 0`);
+    model.setAttribute("position", `0 ${altitude} 0`);
     model.addEventListener("loaded", () => {
       window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
     });
@@ -124,7 +124,7 @@ function connectPoints() {
     if (previousPosition)
       point.setAttribute(
         "line",
-        `start: ${previousPosition.x} ${previousPosition.y} ${previousPosition.z}; end: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z}; color: red`
+        `start: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z}; end: ${previousPosition.x} ${previousPosition.y} ${previousPosition.z}; color: red`
       );
     console.log(point.childNodes[1].getAttribute("text"));
     console.log(previousPosition);
