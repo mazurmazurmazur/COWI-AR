@@ -17,13 +17,12 @@ function getLocation() {
 }
 
 function showPosition(position) {
+  //inserting coordinates into right corner div display
   x.innerHTML =
     "Latitude: " +
     position.coords.latitude +
     "<br>Longitude: " +
     position.coords.longitude;
-
-  // x.appendChild(newTextNode);
 }
 
 function yourFunction() {
@@ -98,3 +97,17 @@ window.onload = () => {
   ///when aframe and three are loaded, we start populating the geopoints
   fetchContact();
 };
+
+function connectPoints() {
+  let previousPosition;
+  let geoPoints = document.querySelectorAll(".geoPoint");
+  geoPoints.forEach(point => {
+    let currentPosition = point.getAttribute("position");
+    point.setAttribute(
+      "line",
+      `start: ${previousPosition}; end: ${currentPosition}; color: red`
+    );
+
+    previousPosition = currentPosition;
+  });
+}
