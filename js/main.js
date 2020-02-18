@@ -110,6 +110,7 @@ function renderPlaces(places) {
     scene.prepend(model);
   });
 }
+///
 
 window.onload = () => {
   ///when aframe and three are loaded, we start populating the geopoints
