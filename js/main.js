@@ -117,14 +117,18 @@ window.onload = () => {
 };
 
 function connectPoints() {
-  let previousPosition;
+  let previousPoint;
   let geoPoints = document.querySelectorAll(".geoPoint");
   geoPoints.forEach(point => {
     let currentPosition = point.getAttribute("position");
     if (previousPosition)
       point.setAttribute(
         "line",
-        `start: ${previousPosition.x} ${previousPosition.y} ${previousPosition.z}; end: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z};  color: red`
+        `start: ${previousPoint.getAttribute("position").x} ${
+          previousPoint.getAttribute("position").y
+        } ${previousPoint.getAttribute("position").z}; end: ${
+          currentPosition.x
+        } ${currentPosition.y} ${currentPosition.z};  color: red`
       );
     else {
       point.setAttribute(
@@ -139,6 +143,6 @@ function connectPoints() {
     }
     console.log(point.getAttribute("line"));
     console.log(previousPosition);
-    previousPosition = currentPosition;
+    previousPoint = point;
   });
 }
