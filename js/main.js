@@ -122,7 +122,8 @@ function connectPoints() {
   geoPoints.forEach(point => {
     let currentPosition = point.getAttribute("position");
     if (previousPoint) {
-      console.log(`previous point: ${previousPoint.getAttribute("position")}`);
+      console.log(`previous point:`);
+      console.log(previousPoint.getAttribute("position"));
 
       point.setAttribute(
         "line",
@@ -143,7 +144,8 @@ function connectPoints() {
         `start: -10 0 15; end: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z}; color: red`
       );
     }
-    console.log(`current point: ${point.getAttribute("position")}`);
+    console.log(`current point: `);
+    console.log(point.getAttribute("position"));
     previousPoint = point;
   });
 }
