@@ -126,24 +126,15 @@ function connectPoints() {
       console.log(previousPoint.getAttribute("position"));
 
       point.setAttribute(
-        "line",
-        `start: ${previousPoint.getAttribute("position").x +
-          0.00001} ${previousPoint.getAttribute("position").y +
-          0.00001} ${previousPoint.getAttribute("position").z +
-          0.00001}; end: ${currentPosition.x} ${currentPosition.y} ${
-          currentPosition.z
-        };  color: red`
+        "meshline",
+        `lineWidth: 5px; path: ${previousPoint.getAttribute("position").x} ${
+          previousPoint.getAttribute("position").y
+        } ${previousPoint.getAttribute("position").z}, ${currentPosition.x} ${
+          currentPosition.y
+        } ${currentPosition.z};  color: red`
       );
     } else {
-      point.setAttribute(
-        "line",
-        `start: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z}; end: 10 0 10; color: red`
-      );
-
-      point.setAttribute(
-        "line__2",
-        `start: -10 0 15; end: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z}; color: red`
-      );
+      console.log("handle that");
     }
     console.log(`current point: `);
     console.log(point.getAttribute("position"));
