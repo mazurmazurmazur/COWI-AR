@@ -120,7 +120,7 @@ function connectPoints() {
   let previousPoint;
   let firstPosition;
   let geoPoints = document.querySelectorAll(".geoPoint");
-  geoPoints.forEach(point, i, array => {
+  geoPoints.forEach(function(point, i, array) {
     let currentPosition = point.getAttribute("position");
     if (previousPoint) {
       console.log(`previous point:`);
@@ -141,7 +141,7 @@ function connectPoints() {
     if (i === array.length - 1) {
       point.setAttribute(
         "line",
-        `start: ${firstPosition.x} ${firstPosition.y} ${firsttPosition.z}; end: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z};  color: red`
+        `start: ${firstPosition.x} ${firstPosition.y} ${firstPosition.z}; end: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z};  color: red`
       );
     }
 
