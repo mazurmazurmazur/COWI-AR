@@ -183,7 +183,57 @@
       "id": "dk_wfs_annotation_template.12",
       "geometry": {
         "type": "MultiPoint",
-        "coordinates": [[37.82566707, 48.9617832, 0]]
+        "coordinates": [[37.813956, 48.982033, 2]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 18,
+        "comment": "Pioniersky Provulok",
+        "username": "CMVadmin",
+        "created": "2020-02-10T12:42:45.473Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.12",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[37.813956, 48.982033, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 19,
+        "comment": "Dzherzhynskoho",
+        "username": "CMVadmin",
+        "created": "2020-02-10T12:42:45.473Z",
+        "annotation": ""
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.12",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[37.820633, 48.979071, 15]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 19,
+        "comment": "Vsesto Tov",
+        "username": "CMVadmin",
+        "created": "2020-02-10T12:42:45.473Z",
+        "annotation": ""
+      }
+    },
+
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.12",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[37.82566707, 48.9617832, 3]]
       },
       "geometry_name": "geom",
       "properties": {
