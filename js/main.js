@@ -124,7 +124,7 @@ function connectPoints() {
     if (previousPosition)
       point.setAttribute(
         "line",
-        `start: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z}; end: 26.904014351285348 0 -47.76847894997331; color: red`
+        `start: ${previousPosition.x} ${previousPosition.y} ${previousPosition.z}; end: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z};  color: red`
       );
     else {
       point.setAttribute(
