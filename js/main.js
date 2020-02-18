@@ -106,7 +106,7 @@ function renderPlaces(places) {
 
     model.appendChild(dist);
     model.appendChild(text);
-    model.appendChild(pinImage);
+    // model.appendChild(pinImage);
     scene.prepend(model);
   });
 }
