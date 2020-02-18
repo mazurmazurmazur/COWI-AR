@@ -121,7 +121,7 @@ function connectPoints() {
   let geoPoints = document.querySelectorAll(".geoPoint");
   geoPoints.forEach(point => {
     let currentPosition = point.getAttribute("position");
-    if (previousPosition)
+    if (previousPoint)
       point.setAttribute(
         "line",
         `start: ${previousPoint.getAttribute("position").x} ${
