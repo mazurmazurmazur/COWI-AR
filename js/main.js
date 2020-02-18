@@ -18,7 +18,7 @@
 // };
 
 function fetchContact() {
-  fetch("./json/poland.json")
+  fetch("./json/polygon.json")
     .then(res => res.json())
     .then(renderPlaces)
     .then(yourFunction);
