@@ -144,6 +144,8 @@ function connectPoints() {
         "line",
         `start: ${firstPosition.x} ${firstPosition.y} ${firstPosition.z}; end: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z};  color: red`
       );
+
+      console.log(`Last PRINTED: ${firstPosition}`);
     }
 
     console.log(`current point: `);
