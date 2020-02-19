@@ -142,7 +142,7 @@ function connectPoints() {
     previousPoint = point;
   });
 
-  geoPoints
+  Array.from(geoPoints)
     .slice()
     .reverse()
     .forEach(function(point, i, array) {
