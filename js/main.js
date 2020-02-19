@@ -152,7 +152,7 @@ function connectPoints() {
         console.log(previousPoint.getAttribute("position"));
 
         point.setAttribute(
-          "line",
+          "line__2",
           `start: ${previousPoint.getAttribute("position").x +
             0.00001} ${previousPoint.getAttribute("position").y +
             0.00001} ${previousPoint.getAttribute("position").z +
