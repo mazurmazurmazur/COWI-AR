@@ -63,6 +63,22 @@
         "created": "2020-02-05T19:02:27.606Z",
         "annotation": ""
       }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.4",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[12.504087, 55.767273, -5]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 5,
+        "comment": "bank",
+        "username": "CMVadmin",
+        "created": "2020-02-05T19:02:27.606Z",
+        "annotation": ""
+      }
     }
   ]
 }

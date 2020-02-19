@@ -136,16 +136,6 @@ function connectPoints() {
           currentPosition.z
         };  color: red`
       );
-    } else {
-      firstPosition = currentPosition;
-    }
-    if (i === array.length - 1) {
-      point.setAttribute(
-        "line",
-        `start: ${firstPosition.x} ${firstPosition.y} ${firstPosition.z}; end: ${currentPosition.x} ${currentPosition.y} ${currentPosition.z};  color: red`
-      );
-
-      console.log(`Last PRINTED: ${firstPosition}`);
     }
 
     console.log(`current point: `);
