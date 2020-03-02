@@ -5,7 +5,7 @@
       "id": "dk_wfs_annotation_template.2",
       "geometry": {
         "type": "MultiPoint",
-        "coordinates": [[12.504087, 55.767273, 0]]
+        "coordinates": [[12.504087, 55.767273, -5]]
       },
       "geometry_name": "geom",
       "properties": {
@@ -21,7 +21,7 @@
       "id": "dk_wfs_annotation_template.1",
       "geometry": {
         "type": "MultiPoint",
-        "coordinates": [[12.504253, 55.767325, 0]]
+        "coordinates": [[12.504253, 55.767325, -5]]
       },
       "geometry_name": "geom",
       "properties": {
@@ -37,7 +37,7 @@
       "id": "dk_wfs_annotation_template.3",
       "geometry": {
         "type": "MultiPoint",
-        "coordinates": [[12.504258, 55.767237, 0]]
+        "coordinates": [[12.504258, 55.767237, -5]]
       },
       "geometry_name": "geom",
       "properties": {
@@ -53,7 +53,7 @@
       "id": "dk_wfs_annotation_template.4",
       "geometry": {
         "type": "MultiPoint",
-        "coordinates": [[12.504089, 55.767187, 0]]
+        "coordinates": [[12.504089, 55.767187, -5]]
       },
       "geometry_name": "geom",
       "properties": {
@@ -69,7 +69,7 @@
       "id": "dk_wfs_annotation_template.4",
       "geometry": {
         "type": "MultiPoint",
-        "coordinates": [[12.504087, 55.767273, 0]]
+        "coordinates": [[12.504087, 55.767273, -5]]
       },
       "geometry_name": "geom",
       "properties": {
@@ -91,7 +91,7 @@
       "geometry_name": "geom",
       "properties": {
         "id": 2,
-        "comment": "refill station",
+        "comment": "above1",
         "username": "CMVadmin",
         "created": "2020-02-05T19:01:42.001Z",
         "annotation": ""
@@ -107,7 +107,7 @@
       "geometry_name": "geom",
       "properties": {
         "id": 1,
-        "comment": "bridge",
+        "comment": "above2",
         "username": "CMVadmin",
         "created": "2020-02-05T19:01:35.145Z",
         "annotation": ""
@@ -123,7 +123,7 @@
       "geometry_name": "geom",
       "properties": {
         "id": 3,
-        "comment": "sub-building",
+        "comment": "above3",
         "username": "CMVadmin",
         "created": "2020-02-05T19:02:07.081Z",
         "annotation": ""
@@ -139,7 +139,7 @@
       "geometry_name": "geom",
       "properties": {
         "id": 4,
-        "comment": "bank",
+        "comment": "above4",
         "username": "CMVadmin",
         "created": "2020-02-05T19:02:27.606Z",
         "annotation": ""
@@ -155,7 +155,7 @@
       "geometry_name": "geom",
       "properties": {
         "id": 5,
-        "comment": "bank",
+        "comment": "above5",
         "username": "CMVadmin",
         "created": "2020-02-05T19:02:27.606Z",
         "annotation": ""
