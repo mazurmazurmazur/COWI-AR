@@ -86,7 +86,7 @@
       "id": "dk_wfs_annotation_template.2",
       "geometry": {
         "type": "MultiPoint",
-        "coordinates": [[12.504087, 55.767273, 20]]
+        "coordinates": [[12.504087, 55.767273, 10]]
       },
       "geometry_name": "geom",
       "properties": {
@@ -118,7 +118,7 @@
       "id": "dk_wfs_annotation_template.3",
       "geometry": {
         "type": "MultiPoint",
-        "coordinates": [[12.504258, 55.767237, 20]]
+        "coordinates": [[12.504258, 55.767237, 30]]
       },
       "geometry_name": "geom",
       "properties": {
@@ -134,7 +134,7 @@
       "id": "dk_wfs_annotation_template.4",
       "geometry": {
         "type": "MultiPoint",
-        "coordinates": [[12.504089, 55.767187, 20]]
+        "coordinates": [[12.504089, 55.767187, 40]]
       },
       "geometry_name": "geom",
       "properties": {
@@ -150,7 +150,7 @@
       "id": "dk_wfs_annotation_template.4",
       "geometry": {
         "type": "MultiPoint",
-        "coordinates": [[12.504087, 55.767273, 20]]
+        "coordinates": [[12.504087, 55.767273, 50]]
       },
       "geometry_name": "geom",
       "properties": {
