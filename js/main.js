@@ -106,7 +106,7 @@ function renderPlaces(places) {
 
     model.appendChild(dist);
     model.appendChild(text);
-    model.appendChild(pinImage);
+    // model.appendChild(pinImage);
     scene.prepend(model);
   });
 }
@@ -120,7 +120,7 @@ window.onload = () => {
 function connectPoints() {
   let previousPoint;
   let geoPoints = document.querySelectorAll(".geoPoint");
-  geoPoints.forEach(function(point, i, array) {
+  geoPoints.forEach(function (point, i, array) {
     let currentPosition = point.getAttribute("position");
     if (previousPoint) {
       console.log(`previous point:`);
@@ -129,10 +129,10 @@ function connectPoints() {
       point.setAttribute(
         "line",
         `start: ${previousPoint.getAttribute("position").x +
-          0.00001} ${previousPoint.getAttribute("position").y +
-          0.00001} ${previousPoint.getAttribute("position").z +
-          0.00001}; end: ${currentPosition.x} ${currentPosition.y} ${
-          currentPosition.z
+        0.00001} ${previousPoint.getAttribute("position").y +
+        0.00001} ${previousPoint.getAttribute("position").z +
+        0.00001}; end: ${currentPosition.x} ${currentPosition.y} ${
+        currentPosition.z
         };  color: red`
       );
     }
@@ -145,7 +145,7 @@ function connectPoints() {
   Array.from(geoPoints)
     .slice()
     .reverse()
-    .forEach(function(point, i, array) {
+    .forEach(function (point, i, array) {
       let currentPosition = point.getAttribute("position");
       if (previousPoint) {
         console.log(`previous point:`);
@@ -154,10 +154,10 @@ function connectPoints() {
         point.setAttribute(
           "line__2",
           `start: ${previousPoint.getAttribute("position").x +
-            0.00001} ${previousPoint.getAttribute("position").y +
-            0.00001} ${previousPoint.getAttribute("position").z +
-            0.00001}; end: ${currentPosition.x} ${currentPosition.y} ${
-            currentPosition.z
+          0.00001} ${previousPoint.getAttribute("position").y +
+          0.00001} ${previousPoint.getAttribute("position").z +
+          0.00001}; end: ${currentPosition.x} ${currentPosition.y} ${
+          currentPosition.z
           };  color: red`
         );
       }
