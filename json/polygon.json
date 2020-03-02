@@ -160,6 +160,39 @@
         "created": "2020-02-05T19:02:27.606Z",
         "annotation": ""
       }
+    },
+
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.6",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[37.81523685, 48.98134016, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 6,
+        "comment": "ILLI",
+        "username": "CMVadmin",
+        "created": "2020-02-10T12:40:09.862Z",
+        "annotation": ""
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "dk_wfs_annotation_template.6",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [[37.823061, 48.962946, 0]]
+      },
+      "geometry_name": "geom",
+      "properties": {
+        "id": 6,
+        "comment": "ILLI",
+        "username": "CMVadmin",
+        "created": "2020-02-10T12:40:09.862Z",
+        "annotation": ""
+      }
     }
   ]
 }
