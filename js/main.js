@@ -18,7 +18,7 @@
 // };
 
 function fetchContact() {
-  fetch("./json/lyngbyAll.json")
+  fetch("./json/lyngbyCropped.json")
     .then(res => res.json())
     .then(renderPlaces)
     .then(yourFunction);
@@ -64,8 +64,7 @@ function yourFunction() {
 
 function renderPlaces(places) {
   let scene = document.querySelector("a-scene");
-
-  places[0].features.forEach(place => {
+  places.features.forEach(place => {
     // if (place.geometry.type != "Point" &&
     //   place.geometry.type != "lineString" &&
     //   place.geometry.type != "MultiPolygon" && 
@@ -73,52 +72,52 @@ function renderPlaces(places) {
     //   place.geometry.type != "Polygon") {
     //   console.log(place.geometry.type);
     // }
-    place.geometry.coordinates[0].forEach(coordinate => {
+    place.geometry.coordinates.forEach(coordinate => {
 
 
       let latitude = coordinate[0];
       let longitude = coordinate[1];
-      let altitude =
-        coordinate[2] ?
-          coordinate[2] :
-          0;
+      // let altitude =
+      //   coordinate[2] ?
+      //     coordinate[2] :
+      //     0;
 
       let model = document.createElement("a-entity");
-      let text = document.createElement("a-entity");
-      let pinImage = document.createElement("a-image");
-      let dist = document.createElement("a-entity");
+      // let text = document.createElement("a-entity");
+      // let pinImage = document.createElement("a-image");
+      // let dist = document.createElement("a-entity");
 
       model.setAttribute(
         "gps-entity-place",
         `latitude: ${longitude}; longitude: ${latitude};`
       );
-      model.setAttribute("distanceMsg", "");
-      model.setAttribute("distance", 0);
-      model.setAttribute("scale", "4 4 4");
-      model.setAttribute("position", `0 ${altitude} 0`);
-      model.addEventListener("loaded", () => {
-        window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
-      });
-      model.classList.add("geoPoint");
+      // model.setAttribute("distanceMsg", "");
+      // model.setAttribute("distance", 0);
+      // model.setAttribute("scale", "4 4 4");
+      // model.setAttribute("position", `0 ${altitude} 0`);
+      // model.addEventListener("loaded", () => {
+      //   window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
+      // });
+      // model.classList.add("geoPoint");
 
-      dist.setAttribute("text", "value: Distance Loading...; align: center; ");
-      dist.setAttribute("look-at", "#camra");
-      dist.setAttribute("scale", "8 8 8");
-      dist.setAttribute("position", "0 1.1 0");
-      dist.classList.add("distDisplay");
+      // dist.setAttribute("text", "value: Distance Loading...; align: center; ");
+      // dist.setAttribute("look-at", "#camra");
+      // dist.setAttribute("scale", "8 8 8");
+      // dist.setAttribute("position", "0 1.1 0");
+      // dist.classList.add("distDisplay");
 
-      text.setAttribute(
-        "text",
-        "value: " + place.properties.comment + "; align: center;  color: red;"
-      );
-      text.setAttribute("look-at", "#camra");
-      text.setAttribute("scale", "8 8 8");
-      text.setAttribute("position", "0 0.8 0");
+      // text.setAttribute(
+      //   "text",
+      //   "value: " + place.properties.comment + "; align: center;  color: red;"
+      // );
+      // text.setAttribute("look-at", "#camra");
+      // text.setAttribute("scale", "8 8 8");
+      // text.setAttribute("position", "0 0.8 0");
 
-      pinImage.setAttribute("src", "./assets/marker.png");
+      // pinImage.setAttribute("src", "./assets/marker.png");
 
-      model.appendChild(dist);
-      model.appendChild(text);
+      // model.appendChild(dist);
+      // model.appendChild(text);
       // model.appendChild(pinImage);
       scene.prepend(model);
     })
