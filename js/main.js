@@ -137,7 +137,7 @@ function connectPoints() {
   let geoPoints = document.querySelectorAll(".geoPoint");
   geoPoints.forEach(point => {
     let currentPosition = point.getAttribute("position");
-    if (previousPoint && previousPoint.id == point.id) {
+    if (previousPoint && previousPoint.classList[1] == point.classList[1]) {
       point.setAttribute(
         "line",
         `start: 
@@ -159,7 +159,7 @@ function connectPoints() {
     .reverse()
     .forEach(point => {
       let currentPosition = point.getAttribute("position");
-      if (previousPoint && previousPoint.id == point.id) {
+      if (previousPoint && previousPoint.classList[1] == point.classList[1]) {
         point.setAttribute(
           "line__2",
           `start: 
