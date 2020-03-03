@@ -64,7 +64,7 @@ function showPosition(position) {
 
 function renderPlaces(places) {
   let scene = document.querySelector("a-scene");
-  places.features.forEach(place => {
+  places.features.forEach((place, placeIndex) => {
     // if (place.geometry.type != "Point" &&
     //   place.geometry.type != "lineString" &&
     //   place.geometry.type != "MultiPolygon" && 
@@ -98,7 +98,7 @@ function renderPlaces(places) {
       model.addEventListener("loaded", () => {
         window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
       });
-      model.classList.add("geoPoint");
+      model.classList.add("geoPoint", "geo" + placeIndex);
 
       // dist.setAttribute("text", "value: Distance Loading...; align: center; ");
       // dist.setAttribute("look-at", "#camra");
@@ -135,51 +135,45 @@ window.onload = () => {
 function connectPoints() {
   let previousPoint;
   let geoPoints = document.querySelectorAll(".geoPoint");
-  console.log(geoPoints);
-  geoPoints.forEach(function (point, i, array) {
+  geoPoints.forEach(point => {
     let currentPosition = point.getAttribute("position");
-    if (previousPoint) {
-      console.log(`previous point:`);
-      console.log(previousPoint.getAttribute("position"));
-
+    if (previousPoint && previousPoint.id == point.id) {
       point.setAttribute(
         "line",
-        `start: ${previousPoint.getAttribute("position").x +
-        0.00001} ${previousPoint.getAttribute("position").y +
-        0.00001} ${previousPoint.getAttribute("position").z +
-        0.00001}; end: ${currentPosition.x} ${currentPosition.y} ${
-        currentPosition.z
-        };  color: red`
+        `start: 
+        ${previousPoint.getAttribute("position").x} 
+        ${previousPoint.getAttribute("position").y} 
+        ${previousPoint.getAttribute("position").z}; 
+        end: 
+        ${currentPosition.x} 
+        ${currentPosition.y} 
+        ${currentPosition.z};
+        color: red`
       );
     }
-
-    console.log(`current point: `);
-    console.log(point.getAttribute("position"));
     previousPoint = point;
   });
 
   Array.from(geoPoints)
     .slice()
     .reverse()
-    .forEach(function (point, i, array) {
+    .forEach(point => {
       let currentPosition = point.getAttribute("position");
-      if (previousPoint) {
-        console.log(`previous point:`);
-        console.log(previousPoint.getAttribute("position"));
-
+      if (previousPoint && previousPoint.id == point.id) {
         point.setAttribute(
           "line__2",
-          `start: ${previousPoint.getAttribute("position").x +
-          0.00001} ${previousPoint.getAttribute("position").y +
-          0.00001} ${previousPoint.getAttribute("position").z +
-          0.00001}; end: ${currentPosition.x} ${currentPosition.y} ${
-          currentPosition.z
+          `start: 
+          ${previousPoint.getAttribute("position").x
+          } ${previousPoint.getAttribute("position").y
+          } ${previousPoint.getAttribute("position").z
+          }; 
+          end: 
+          ${currentPosition.x} 
+          ${currentPosition.y} 
+          ${currentPosition.z
           };  color: red`
         );
       }
-
-      console.log(`current point: `);
-      console.log(point.getAttribute("position"));
       previousPoint = point;
     });
 }
