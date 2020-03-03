@@ -84,7 +84,7 @@ function renderPlaces(places) {
 
       let model = document.createElement("a-entity");
       // let text = document.createElement("a-entity");
-      // let pinImage = document.createElement("a-image");
+      let pinImage = document.createElement("a-image");
       // let dist = document.createElement("a-entity");
 
       model.setAttribute(
@@ -114,11 +114,11 @@ function renderPlaces(places) {
       // text.setAttribute("scale", "8 8 8");
       // text.setAttribute("position", "0 0.8 0");
 
-      // pinImage.setAttribute("src", "./assets/marker.png");
+      pinImage.setAttribute("src", "./assets/marker.png");
 
       // model.appendChild(dist);
       // model.appendChild(text);
-      // model.appendChild(pinImage);
+      model.appendChild(pinImage);
       scene.prepend(model);
     })
 
