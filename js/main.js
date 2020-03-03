@@ -20,8 +20,8 @@
 function fetchContact() {
   fetch("./json/lyngbyCropped.json")
     .then(res => res.json())
-    .then(renderPlaces)
-    .then(yourFunction);
+    .then(renderPlaces);
+  // .then(yourFunction);
 }
 
 var x = document.getElementById("demo");
@@ -42,25 +42,25 @@ function showPosition(position) {
     position.coords.longitude;
 }
 
-function yourFunction() {
-  ////refreshing distance above geopoints
-  [...document.querySelectorAll(".geoPoint")].forEach(point => {
-    if (point.getAttribute("distance") < 700) {
-      //refreshing only up to 700m from the camera
-      point
-        .querySelector(".distDisplay")
-        .setAttribute(
-          "text",
-          `value: ${point.getAttribute("distanceMsg")}; color: green;`
-        );
-    }
-  });
+// function yourFunction() {
+//   ////refreshing distance above geopoints
+//   [...document.querySelectorAll(".geoPoint")].forEach(point => {
+//     if (point.getAttribute("distance") < 700) {
+//       //refreshing only up to 700m from the camera
+//       point
+//         .querySelector(".distDisplay")
+//         .setAttribute(
+//           "text",
+//           `value: ${point.getAttribute("distanceMsg")}; color: green;`
+//         );
+//     }
+//   });
 
-  //getting current location
-  getLocation();
+//   //getting current location
+//   getLocation();
 
-  setTimeout(yourFunction, 2000); ///recurrent function, looping for ever
-}
+//   setTimeout(yourFunction, 2000); ///recurrent function, looping for ever
+// }
 
 function renderPlaces(places) {
   let scene = document.querySelector("a-scene");
