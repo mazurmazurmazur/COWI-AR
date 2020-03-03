@@ -98,7 +98,7 @@ function renderPlaces(places) {
       model.addEventListener("loaded", () => {
         window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
       });
-      // model.classList.add("geoPoint");
+      model.classList.add("geoPoint");
 
       // dist.setAttribute("text", "value: Distance Loading...; align: center; ");
       // dist.setAttribute("look-at", "#camra");
@@ -135,6 +135,7 @@ window.onload = () => {
 function connectPoints() {
   let previousPoint;
   let geoPoints = document.querySelectorAll(".geoPoint");
+  console.log(geoPoints);
   geoPoints.forEach(function (point, i, array) {
     let currentPosition = point.getAttribute("position");
     if (previousPoint) {
