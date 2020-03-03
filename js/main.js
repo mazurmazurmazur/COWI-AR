@@ -95,9 +95,9 @@ function renderPlaces(places) {
       // model.setAttribute("distance", 0);
       // model.setAttribute("scale", "4 4 4");
       // model.setAttribute("position", `0 ${altitude} 0`);
-      // model.addEventListener("loaded", () => {
-      //   window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
-      // });
+      model.addEventListener("loaded", () => {
+        window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
+      });
       // model.classList.add("geoPoint");
 
       // dist.setAttribute("text", "value: Distance Loading...; align: center; ");
