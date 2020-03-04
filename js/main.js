@@ -18,7 +18,7 @@
 // };
 
 function fetchContact() {
-  fetch("./json/lyngbyCropped.json")
+  fetch("./json/a123.json")
     .then(res => res.json())
     .then(renderPlaces);
   // .then(yourFunction);
