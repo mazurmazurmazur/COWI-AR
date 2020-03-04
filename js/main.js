@@ -73,6 +73,7 @@ function renderPlaces(places) {
     //   console.log(place.geometry.type);
     // }
     place.geometry.coordinates.forEach(coordinate => {
+      console.log(coordinate);
 
 
       let latitude = coordinate[0];
