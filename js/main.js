@@ -109,6 +109,7 @@ function yourFunction() {
 }
 
 function renderPlaces(places) {
+  console.log(places)
   let scene = document.querySelector("a-scene");
   places.features.forEach((place, placeIndex) => {
 
