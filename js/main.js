@@ -9,7 +9,6 @@ let dist = {
 
 
 window.addEventListener('load', function () {
-  console.log("a")
   getLocation()
 })
 
@@ -66,7 +65,7 @@ ${calcDist(dist.x, dist.y, 0.0005, 0.001)}
 
 function fetchContact() {
 
-  fetch("https://cmv.cowi.com/geoserver/wfs/", {
+  fetch("https://cors-anywhere.herokuapp.com/https://cmv.cowi.com/geoserver/wfs/", {
     method: 'post',
     body: XmlContent
   })
@@ -81,7 +80,6 @@ var x = document.getElementById("demo");
 
 
 function getLocation() {
-  console.log("b")
   navigator.geolocation.getCurrentPosition(showPosition);
 
 }
@@ -89,8 +87,7 @@ function getLocation() {
 function showPosition(position) {
   dist.x = position.coords.latitude;
   dist.y = position.coords.longitude;
-  console.log("distx:")
-  console.log(dist.x);
+
   fetchContact();
 
 
