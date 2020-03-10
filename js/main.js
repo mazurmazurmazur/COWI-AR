@@ -1,13 +1,13 @@
 "use strict";
 
 
+const promise1 = new Promise(yourFunction()).
 
+  window.addEventListener('load', function () {
+    promise1.then(
+      fetchContact)
 
-window.addEventListener('load', function () {
-  promise(yourFunction()).then(
-    fetchContact)
-
-})
+  })
 
 let dist = {
   x: 55.767062,
