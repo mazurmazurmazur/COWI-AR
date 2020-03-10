@@ -15,9 +15,11 @@ let dist = {
 }
 
 
-let currentArr = [];
-let currentString;
+
+
 const calcDist = (x, y, plusLat, plusLong) => {
+  let currentArr = [];
+  let currentString;
   let t = [
     x + plusLat,
     y + plusLong,
@@ -68,7 +70,10 @@ function fetchContact() {
     body: XmlContent
   })
     .then(res => res.json())
-    .then(renderPlaces);
+    .then(renderPlaces).then(
+
+      console.log(calcDist(dist.x, dist.y, 0.0005, 0.001))
+    )
   // .then(yourFunction);
 }
 
