@@ -1,18 +1,22 @@
 "use strict";
 
 
-const promise1 = new Promise(yourFunction()).
-
-  window.addEventListener('load', function () {
-    promise1.then(
-      fetchContact)
-
-  })
-
 let dist = {
   x: 55.767062,
   y: 12.504497
 }
+
+
+window.addEventListener('load', function () {
+  console.log("1przed yourfunc")
+  yourFunction();
+  console.log("2po yourfunc i przed fetch, dist: ")
+  console.log(dist)
+  fetchContact();
+  console.log("4po calym fetchcontact")
+
+})
+
 
 
 
@@ -64,15 +68,14 @@ ${calcDist(dist.x, dist.y, 0.0005, 0.001)}
 
 
 
-function fetchContact() {
+function fetchContact(x, y) {
+  console.log("3pierwsza linijka fetchcontact")
   fetch("https://cors-anywhere.herokuapp.com/https://cmv.cowi.com/geoserver/wfs/", {
     method: 'post',
     body: XmlContent
   })
     .then(res => res.json())
     .then(renderPlaces).then(
-
-      console.log(calcDist(dist.x, dist.y, 0.0005, 0.001))
     )
   // .then(yourFunction);
 }
@@ -98,20 +101,7 @@ function showPosition(position) {
 }
 
 function yourFunction() {
-  // ////refreshing distance above geopoints
-  // [...document.querySelectorAll(".geoPoint")].forEach(point => {
-  //   if (point.getAttribute("distance") < 700) {
-  //     //refreshing only up to 700m from the camera
-  //     point
-  //       .querySelector(".distDisplay")
-  //       .setAttribute(
-  //         "text",
-  //         `value: ${point.getAttribute("distanceMsg")}; color: green;`
-  //       );
-  //   }
-  // });
 
-  //getting current location
   getLocation();
 
   setTimeout(yourFunction, 2000); ///recurrent function, looping for ever
@@ -121,13 +111,7 @@ function renderPlaces(places) {
   console.log(places);
   let scene = document.querySelector("a-scene");
   places.features.forEach((place, placeIndex) => {
-    // if (place.geometry.type != "Point" &&
-    //   place.geometry.type != "lineString" &&
-    //   place.geometry.type != "MultiPolygon" && 
-    //   place.geometry.type != "MultiLineString" &&
-    //   place.geometry.type != "Polygon") {
-    //   console.log(place.geometry.type);
-    // }
+
     place.geometry.coordinates.forEach(coordinatesWrapper => {
 
       coordinatesWrapper.forEach(coordinate => {
@@ -236,3 +220,31 @@ function connectPoints() {
       previousPoint = point;
     });
 }
+
+
+
+
+  // ////refreshing distance above geopoints
+  // [...document.querySelectorAll(".geoPoint")].forEach(point => {
+  //   if (point.getAttribute("distance") < 700) {
+  //     //refreshing only up to 700m from the camera
+  //     point
+  //       .querySelector(".distDisplay")
+  //       .setAttribute(
+  //         "text",
+  //         `value: ${point.getAttribute("distanceMsg")}; color: green;`
+  //       );
+  //   }
+  // });
+
+  //getting current location
+
+
+
+      // if (place.geometry.type != "Point" &&
+    //   place.geometry.type != "lineString" &&
+    //   place.geometry.type != "MultiPolygon" && 
+    //   place.geometry.type != "MultiLineString" &&
+    //   place.geometry.type != "Polygon") {
+    //   console.log(place.geometry.type);
+    // }
