@@ -17,8 +17,84 @@
 //   }, 2912);
 // };
 
+
+let dist = {
+  x: 55.767062,
+  y: 12.504497
+}
+let currentArr = [];
+let currentString;
+const calcDist = (x, y, plusLat, plusLong) => {
+  let t = [
+    x + plusLat,
+    y + plusLong,
+    x - plusLat,
+    y - plusLong,]
+
+
+  currentArr.push(
+    [t[3], t[0]],
+    [t[1], t[0]],
+    [t[1], t[2]],
+    [t[3], t[2]],
+    [t[3], t[0]]);
+
+
+  currentArr.forEach(a => {
+    currentString ?
+      currentString = currentString + a + " " :
+      currentString = a.toString() + " ";
+  })
+  return currentString;
+}
+
+let XmlContent = `<wfs:GetFeature service="WFS" version="1.1.0" 
+outputFormat="json" xmlns:gpms="https://cmv.cowi.com/geoserver/gpms" 
+xmlns:wfs="http://www.opengis.net/wfs" xmlns:gml="http://www.opengis.net/gml" 
+xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.opengis.net/wfs 
+http://schemas.opengis.net/wfs/1.1.0/wfs.xsd">
+<wfs:Query  srsName="http://www.opengis.net/gml/srs/epsg.xml#4326" typeName="ar_test:lyngby_ar_test">
+<Filter><Intersects><PropertyName>the_geom
+</PropertyName><gml:MultiPolygon 
+srsName="http://www.opengis.net/gml/srs/epsg.xml#4326">
+<gml:polygonMember><gml:Polygon><gml:exterior><gml:LinearRing>
+<gml:coordinates decimal="." cs="," ts=" ">
+${calcDist(dist.x, dist.y, 0.0005, 0.001)}
+</gml:coordinates></gml:LinearRing></gml:exterior></gml:Polygon>
+</gml:polygonMember></gml:MultiPolygon></Intersects>
+</Filter>
+</wfs:Query></wfs:GetFeature>`
+
+function sendReq() {
+
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "https://cmv.cowi.com/geoserver/wfs/");
+
+  var xmlDoc2;
+
+
+  xhr.onreadystatechange = () => {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+      xmlDoc2 = xhr.response;
+      return xmlDoc2;
+    }
+  };
+
+  xhr.setRequestHeader("Content-Type", "application/xml");
+  xhr.send(XmlContent);
+}
+
+
+
+
+
 function fetchContact() {
-  fetch("./json/a124.json")
+  fetch("https://cmv.cowi.com/geoserver/wfs/", {
+    method: 'post',
+    body: XmlContent
+  })
     .then(res => res.json())
     .then(renderPlaces);
   // .then(yourFunction);
@@ -63,6 +139,7 @@ function showPosition(position) {
 // }
 
 function renderPlaces(places) {
+  console.log(places);
   let scene = document.querySelector("a-scene");
   places.features.forEach((place, placeIndex) => {
     // if (place.geometry.type != "Point" &&
@@ -72,7 +149,6 @@ function renderPlaces(places) {
     //   place.geometry.type != "Polygon") {
     //   console.log(place.geometry.type);
     // }
-    console.log(place);
     place.geometry.coordinates.forEach(coordinatesWrapper => {
 
       coordinatesWrapper.forEach(coordinate => {
@@ -120,7 +196,7 @@ function renderPlaces(places) {
         // model.appendChild(dist);
         // model.appendChild(text);
         model.appendChild(pinImage);
-        scene.prepend(model);
+        scene.appendChild(model);
 
       })
 
