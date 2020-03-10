@@ -70,7 +70,7 @@ ${calcDist(dist.x, dist.y, 0.0005, 0.001)}
 
 function fetchContact(x, y) {
   console.log("3pierwsza linijka fetchcontact")
-  fetch("https://cors-anywhere.herokuapp.com/https://cmv.cowi.com/geoserver/wfs/", {
+  fetch("https://cmv.cowi.com/geoserver/wfs/", {
     method: 'post',
     body: XmlContent
   })
