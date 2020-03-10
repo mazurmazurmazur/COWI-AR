@@ -1,27 +1,20 @@
 "use strict";
 
-// navigator.geolocation.getCurrentPosition = fn => {
-//   setTimeout(() => {
-//     fn({
-//       coords: {
-//         accuracy: 40,
-//         altitude: null,
-//         altitudeAccuracy: null,
-//         heading: null,
-//         latitude: 49.80411975,
-//         longitude: 19.04426897,
-//         speed: null
-//       },
-//       timestamp: Date.now()
-//     });
-//   }, 2912);
-// };
 
+
+
+window.addEventListener('load', function () {
+  yourFunction();
+  fetchContact();
+
+})
 
 let dist = {
   x: 55.767062,
   y: 12.504497
 }
+
+
 let currentArr = [];
 let currentString;
 const calcDist = (x, y, plusLat, plusLong) => {
@@ -66,27 +59,6 @@ ${calcDist(dist.x, dist.y, 0.0005, 0.001)}
 </Filter>
 </wfs:Query></wfs:GetFeature>`
 
-function sendReq() {
-
-
-  var xhr = new XMLHttpRequest();
-  xhr.open("POST", "https://cmv.cowi.com/geoserver/wfs/");
-
-  var xmlDoc2;
-
-
-  xhr.onreadystatechange = () => {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-      xmlDoc2 = xhr.response;
-      return xmlDoc2;
-    }
-  };
-
-  xhr.setRequestHeader("Content-Type", "application/xml");
-  xhr.send(XmlContent);
-}
-
-
 
 
 
@@ -111,6 +83,8 @@ function getLocation() {
 
 function showPosition(position) {
   //inserting coordinates into right corner div display
+  dist.x = position.coords.latitude;
+  dist.y = position.coords.longitude;
   x.innerHTML =
     "Latitude: " +
     position.coords.latitude +
@@ -211,10 +185,6 @@ function renderPlaces(places) {
 }
 ///
 
-window.onload = () => {
-  ///when aframe and three are loaded, we start populating the geopoints
-  fetchContact();
-};
 
 function connectPoints() {
   let previousPoint;
