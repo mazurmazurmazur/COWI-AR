@@ -91,7 +91,7 @@ function sendReq() {
 
 
 function fetchContact() {
-  fetch("https://cmv.cowi.com/geoserver/wfs/", {
+  fetch("https://cors-anywhere.herokuapp.com/https://cmv.cowi.com/geoserver/wfs/", {
     method: 'post',
     body: XmlContent
   })
@@ -118,25 +118,25 @@ function showPosition(position) {
     position.coords.longitude;
 }
 
-// function yourFunction() {
-//   ////refreshing distance above geopoints
-//   [...document.querySelectorAll(".geoPoint")].forEach(point => {
-//     if (point.getAttribute("distance") < 700) {
-//       //refreshing only up to 700m from the camera
-//       point
-//         .querySelector(".distDisplay")
-//         .setAttribute(
-//           "text",
-//           `value: ${point.getAttribute("distanceMsg")}; color: green;`
-//         );
-//     }
-//   });
+function yourFunction() {
+  // ////refreshing distance above geopoints
+  // [...document.querySelectorAll(".geoPoint")].forEach(point => {
+  //   if (point.getAttribute("distance") < 700) {
+  //     //refreshing only up to 700m from the camera
+  //     point
+  //       .querySelector(".distDisplay")
+  //       .setAttribute(
+  //         "text",
+  //         `value: ${point.getAttribute("distanceMsg")}; color: green;`
+  //       );
+  //   }
+  // });
 
-//   //getting current location
-//   getLocation();
+  //getting current location
+  getLocation();
 
-//   setTimeout(yourFunction, 2000); ///recurrent function, looping for ever
-// }
+  setTimeout(yourFunction, 2000); ///recurrent function, looping for ever
+}
 
 function renderPlaces(places) {
   console.log(places);
