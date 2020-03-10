@@ -47,7 +47,7 @@ xmlns:wfs="http://www.opengis.net/wfs" xmlns:gml="http://www.opengis.net/gml"
 xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 xsi:schemaLocation="http://www.opengis.net/wfs 
 http://schemas.opengis.net/wfs/1.1.0/wfs.xsd">
-<wfs:Query  srsName="http://www.opengis.net/gml/srs/epsg.xml#4326" typeName="ar_test:lyngby_ar_test">
+<wfs:Query  srsName="http://www.opengis.net/gml/srs/epsg.xml#4326" typeName="ar_test:copenhagen_nv_ar_test">
 <Filter><Intersects><PropertyName>the_geom
 </PropertyName><gml:MultiPolygon 
 srsName="http://www.opengis.net/gml/srs/epsg.xml#4326">
