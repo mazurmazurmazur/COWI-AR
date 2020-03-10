@@ -4,8 +4,8 @@
 
 
 window.addEventListener('load', function () {
-  yourFunction();
-  fetchContact();
+  promise(yourFunction()).then(
+    fetchContact)
 
 })
 
