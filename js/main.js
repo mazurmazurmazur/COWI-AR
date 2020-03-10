@@ -2,19 +2,15 @@
 
 
 let dist = {
-  x: 55.767062,
-  y: 12.504497
+  x: null,
+  y: null,
+
 }
 
 
 window.addEventListener('load', function () {
-  console.log("1przed yourfunc")
-  yourFunction();
-  console.log("2po yourfunc i przed fetch, dist: ")
-  console.log(dist)
-  fetchContact();
-  console.log("4po calym fetchcontact")
-
+  console.log("a")
+  getLocation()
 })
 
 
@@ -68,8 +64,8 @@ ${calcDist(dist.x, dist.y, 0.0005, 0.001)}
 
 
 
-function fetchContact(x, y) {
-  console.log("3pierwsza linijka fetchcontact")
+function fetchContact() {
+
   fetch("https://cmv.cowi.com/geoserver/wfs/", {
     method: 'post',
     body: XmlContent
@@ -81,34 +77,41 @@ function fetchContact(x, y) {
 }
 
 var x = document.getElementById("demo");
+
+
+
 function getLocation() {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    x.innerHTML = "Geolocation is not supported by this browser.";
-  }
+  console.log("b")
+  navigator.geolocation.getCurrentPosition(showPosition);
+
 }
 
 function showPosition(position) {
-  //inserting coordinates into right corner div display
   dist.x = position.coords.latitude;
   dist.y = position.coords.longitude;
+  console.log("distx:")
+  console.log(dist.x);
+  fetchContact();
+
+
+  //inserting coordinates into right corner div display
+
   x.innerHTML =
     "Latitude: " +
     position.coords.latitude +
     "<br>Longitude: " +
     position.coords.longitude;
+
 }
 
 function yourFunction() {
 
   getLocation();
 
-  setTimeout(yourFunction, 2000); ///recurrent function, looping for ever
+  setTimeout(yourFunction, 20000); ///recurrent function, looping for ever
 }
 
 function renderPlaces(places) {
-  console.log(places);
   let scene = document.querySelector("a-scene");
   places.features.forEach((place, placeIndex) => {
 
