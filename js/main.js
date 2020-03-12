@@ -17,14 +17,17 @@ window.addEventListener('load', function () {
 
 
 const calcDist = (x, y, plusLat, plusLong) => {
+  console.log("x and y")
+  console.log(x + " " + y)
   let currentArr = [];
   let currentString;
   let t = [
-    x + plusLat,
-    y + plusLong,
-    x - plusLat,
-    y - plusLong,]
+    (x + plusLat).toFixed(10),
+    (y + plusLong).toFixed(10),
+    (x - plusLat).toFixed(10),
+    (y - plusLong).toFixed(10)]
 
+  console.log(t);
 
   currentArr.push(
     [t[3], t[0]],
@@ -35,6 +38,8 @@ const calcDist = (x, y, plusLat, plusLong) => {
 
 
   currentArr.forEach(a => {
+    console.log("foreach element:")
+    console.log(a);
     currentString ?
       currentString = currentString + a + " " :
       currentString = a.toString() + " ";
@@ -42,32 +47,41 @@ const calcDist = (x, y, plusLat, plusLong) => {
   return currentString;
 }
 
-let XmlContent = `<wfs:GetFeature service="WFS" version="1.1.0" 
-outputFormat="json" xmlns:gpms="https://cmv.cowi.com/geoserver/gpms" 
-xmlns:wfs="http://www.opengis.net/wfs" xmlns:gml="http://www.opengis.net/gml" 
-xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xsi:schemaLocation="http://www.opengis.net/wfs 
-http://schemas.opengis.net/wfs/1.1.0/wfs.xsd">
-<wfs:Query  srsName="http://www.opengis.net/gml/srs/epsg.xml#4326" typeName="ar_test:copenhagen_nv_ar_test">
-<Filter><Intersects><PropertyName>the_geom
-</PropertyName><gml:MultiPolygon 
-srsName="http://www.opengis.net/gml/srs/epsg.xml#4326">
-<gml:polygonMember><gml:Polygon><gml:exterior><gml:LinearRing>
-<gml:coordinates decimal="." cs="," ts=" ">
-${calcDist(dist.x, dist.y, 0.0005, 0.001)}
-</gml:coordinates></gml:LinearRing></gml:exterior></gml:Polygon>
-</gml:polygonMember></gml:MultiPolygon></Intersects>
-</Filter>
-</wfs:Query></wfs:GetFeature>`
+let XmlContent = (xCoord, yCoord) =>
+  `<wfs:GetFeature service="WFS" version="1.1.0" outputFormat="json" xmlns:gpms="https://cmv.cowi.com/geoserver/gpms" xmlns:wfs="http://www.opengis.net/wfs" xmlns:gml="http://www.opengis.net/gml" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd">
+<wfs:Query srsName="http://www.opengis.net/gml/srs/epsg.xml#4326" typeName="ar_test:copenhagen_nv_ar_test">
+    <Filter>
+        <Intersects>
+            <PropertyName>the_geom</PropertyName>
+            <gml:MultiPolygon srsName="http://www.opengis.net/gml/srs/epsg.xml#4326">
+                <gml:polygonMember>
+                    <gml:Polygon>
+                        <gml:exterior>
+                            <gml:LinearRing>
+                                <gml:coordinates decimal="." cs="," ts=" ">
+                                ${calcDist(xCoord, yCoord, 0.0005, 0.001)}
+                                </gml:coordinates>
+                            </gml:LinearRing>
+                        </gml:exterior>
+                    </gml:Polygon>
+                </gml:polygonMember>
+            </gml:MultiPolygon>
+        </Intersects>
+    </Filter>
+</wfs:Query>
+</wfs:GetFeature>`
 
 
 
 
-function fetchContact() {
+
+function fetchContact(xCoor, yCoor) {
+  console.log("xmlbelow")
+  console.log(XmlContent(xCoor, yCoor))
 
   fetch("https://cors-anywhere.herokuapp.com/https://cmv.cowi.com/geoserver/wfs/", {
     method: 'post',
-    body: XmlContent
+    body: XmlContent(xCoor, yCoor)
   })
     .then(res => res.json())
     .then(renderPlaces).then(
@@ -77,19 +91,14 @@ function fetchContact() {
 
 var x = document.getElementById("demo");
 
-
+yourFunction();
 
 function getLocation() {
-  navigator.geolocation.getCurrentPosition(showPosition);
+  return navigator.geolocation.getCurrentPosition(showPosition);
 
 }
 
 function showPosition(position) {
-  dist.x = position.coords.latitude;
-  dist.y = position.coords.longitude;
-
-  fetchContact();
-
 
   //inserting coordinates into right corner div display
 
@@ -99,14 +108,19 @@ function showPosition(position) {
     "<br>Longitude: " +
     position.coords.longitude;
 
+
+  fetchContact(position.coords.latitude, position.coords.longitude)
+
 }
 
 function yourFunction() {
 
   getLocation();
 
-  setTimeout(yourFunction, 20000); ///recurrent function, looping for ever
+  setTimeout(yourFunction, 10000); ///recurrent function, looping for ever
 }
+
+
 
 function renderPlaces(places) {
   console.log(places)
@@ -156,6 +170,8 @@ function renderPlaces(places) {
         // text.setAttribute("position", "0 0.8 0");
 
         pinImage.setAttribute("src", "./assets/marker.png");
+        pinImage.setAttribute("look-at", "#camra");
+
 
         // model.appendChild(dist);
         // model.appendChild(text);
