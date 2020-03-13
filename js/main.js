@@ -95,6 +95,7 @@ function yourFunction() {
 const removeElements = elms => elms.forEach(el => el.remove()); //function for removing all elements with particular e.g. class
 
 function renderPlaces(places) {
+  console.log(places);
   let scene = document.querySelector("a-scene");
   places.features.forEach((place, placeIndex) => {
     place.geometry.coordinates.forEach(coordinatesWrapper => {
@@ -117,7 +118,7 @@ function renderPlaces(places) {
       });
     });
   });
-  // geoPoints ? removeElements(geoPoints) : null;
+  geoPoints ? removeElements(geoPoints) : null;
 }
 
 let connectPoints = (geoPointsParameter, line_id) => {
