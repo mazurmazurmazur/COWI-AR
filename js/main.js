@@ -147,4 +147,4 @@ function connectPointsHandler() {
   connectPoints(geoPointsReversed, "line_2");
 }
 
-setInterval(getLocation, 10000);
+setInterval(getLocation(), 10000);
