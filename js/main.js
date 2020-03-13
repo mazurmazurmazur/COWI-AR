@@ -1,7 +1,7 @@
 "use strict";
 
 window.addEventListener("load", function() {
-  getLocation();
+  setInterval(getLocation, 10000);
 });
 
 let x = document.getElementById("demo");
@@ -70,7 +70,6 @@ function fetchContact(xCoor, yCoor) {
   )
     .then(res => res.json())
     .then(renderPlaces)
-    .then(yourFunction)
     .then(connectPointsHandler);
 }
 
@@ -88,10 +87,6 @@ function showPosition(position) {
   fetchContact(position.coords.latitude, position.coords.longitude);
 }
 
-function yourFunction() {
-  getLocation();
-  setTimeout(yourFunction, 10000); ///recurrent function, looping for ever
-}
 const removeElements = elms => elms.forEach(el => el.remove()); //function for removing all elements with particular e.g. class
 
 function renderPlaces(places) {
