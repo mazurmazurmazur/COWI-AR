@@ -118,6 +118,7 @@ function renderPlaces(places) {
 }
 
 let connectPoints = (geoPointsParameter, line_id) => {
+  console.log(geoPointsParameter);
   let previousPoint;
   geoPointsParameter.forEach(point => {
     let currentPosition = point.getAttribute("position");
