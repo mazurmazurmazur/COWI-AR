@@ -1,51 +1,36 @@
 "use strict";
 
+window.addEventListener("load", function() {
+  getLocation();
+});
 
-let dist = {
-  x: null,
-  y: null,
-
-}
-
-
-window.addEventListener('load', function () {
-  getLocation()
-})
-
-
-
-
+var x = document.getElementById("demo");
 
 const calcDist = (x, y, plusLat, plusLong) => {
-  console.log("x and y")
-  console.log(x + " " + y)
   let currentArr = [];
   let currentString;
   let t = [
     (x + plusLat).toFixed(10),
     (y + plusLong).toFixed(10),
     (x - plusLat).toFixed(10),
-    (y - plusLong).toFixed(10)]
-
-  console.log(t);
+    (y - plusLong).toFixed(10)
+  ];
 
   currentArr.push(
     [t[3], t[0]],
     [t[1], t[0]],
     [t[1], t[2]],
     [t[3], t[2]],
-    [t[3], t[0]]);
-
+    [t[3], t[0]]
+  );
 
   currentArr.forEach(a => {
-    console.log("foreach element:")
-    console.log(a);
-    currentString ?
-      currentString = currentString + a + " " :
-      currentString = a.toString() + " ";
-  })
+    currentString
+      ? (currentString = currentString + a + " ")
+      : (currentString = a.toString() + " ");
+  });
   return currentString;
-}
+};
 
 let XmlContent = (xCoord, yCoord) =>
   `<wfs:GetFeature service="WFS" version="1.1.0" outputFormat="json" xmlns:gpms="https://cmv.cowi.com/geoserver/gpms" xmlns:wfs="http://www.opengis.net/wfs" xmlns:gml="http://www.opengis.net/gml" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd">
@@ -69,137 +54,73 @@ let XmlContent = (xCoord, yCoord) =>
         </Intersects>
     </Filter>
 </wfs:Query>
-</wfs:GetFeature>`
-
-
-
-
+</wfs:GetFeature>`;
 
 function fetchContact(xCoor, yCoor) {
-  console.log("xmlbelow")
-  console.log(XmlContent(xCoor, yCoor))
-
-  fetch("https://cors-anywhere.herokuapp.com/https://cmv.cowi.com/geoserver/wfs/", {
-    method: 'post',
-    body: XmlContent(xCoor, yCoor)
-  })
+  fetch(
+    "https://cors-anywhere.herokuapp.com/https://cmv.cowi.com/geoserver/wfs/",
+    {
+      method: "post",
+      body: XmlContent(xCoor, yCoor)
+    }
+  )
     .then(res => res.json())
-    .then(renderPlaces).then(
-    )
-  // .then(yourFunction);
+    .then(renderPlaces)
+    .then(yourFunction)
+    .then(connectPointsHandler);
 }
-
-var x = document.getElementById("demo");
-
-yourFunction();
 
 function getLocation() {
   return navigator.geolocation.getCurrentPosition(showPosition);
-
 }
 
 function showPosition(position) {
-
-  //inserting coordinates into right corner div display
-
   x.innerHTML =
     "Latitude: " +
     position.coords.latitude +
     "<br>Longitude: " +
     position.coords.longitude;
-
-
-  fetchContact(position.coords.latitude, position.coords.longitude)
-
+  fetchContact(position.coords.latitude, position.coords.longitude);
 }
 
 function yourFunction() {
-
   getLocation();
-
   setTimeout(yourFunction, 10000); ///recurrent function, looping for ever
 }
 
-
-
 function renderPlaces(places) {
-  console.log(places)
+  console.log(places);
   let scene = document.querySelector("a-scene");
   places.features.forEach((place, placeIndex) => {
-
     place.geometry.coordinates.forEach(coordinatesWrapper => {
-
       coordinatesWrapper.forEach(coordinate => {
         let latitude = coordinate[0];
         let longitude = coordinate[1];
-        // let altitude =
-        //   coordinate[2] ?
-        //     coordinate[2] :
-        //     0;
-
+        let altitude = coordinate[2] ? coordinate[2] : -2; //if altitude set, use it, otherwise set it to -2
         let model = document.createElement("a-entity");
-        // let text = document.createElement("a-entity");
         let pinImage = document.createElement("a-image");
-        // let dist = document.createElement("a-entity");
-
         model.setAttribute(
           "gps-entity-place",
           `latitude: ${longitude}; longitude: ${latitude};`
         );
-        // model.setAttribute("distanceMsg", "");
-        // model.setAttribute("distance", 0);
-        // model.setAttribute("scale", "4 4 4");
-        // model.setAttribute("position", `0 ${altitude} 0`);
-        model.addEventListener("loaded", () => {
-          window.dispatchEvent(new CustomEvent("gps-entity-place-loaded"));
-        });
+        model.setAttribute("position", `0 ${altitude} 0`);
         model.classList.add("geoPoint", "geo" + placeIndex);
-
-        // dist.setAttribute("text", "value: Distance Loading...; align: center; ");
-        // dist.setAttribute("look-at", "#camra");
-        // dist.setAttribute("scale", "8 8 8");
-        // dist.setAttribute("position", "0 1.1 0");
-        // dist.classList.add("distDisplay");
-
-        // text.setAttribute(
-        //   "text",
-        //   "value: " + place.properties.comment + "; align: center;  color: red;"
-        // );
-        // text.setAttribute("look-at", "#camra");
-        // text.setAttribute("scale", "8 8 8");
-        // text.setAttribute("position", "0 0.8 0");
-
         pinImage.setAttribute("src", "./assets/marker.png");
         pinImage.setAttribute("look-at", "#camra");
-
-
-        // model.appendChild(dist);
-        // model.appendChild(text);
         model.appendChild(pinImage);
         scene.appendChild(model);
-
-      })
-
-
-
-
-
-    })
-
-
+      });
+    });
   });
 }
-///
 
-
-function connectPoints() {
+let connectPoints = (geoPointsParameter, line_id) => {
   let previousPoint;
-  let geoPoints = document.querySelectorAll(".geoPoint");
-  geoPoints.forEach(point => {
+  geoPointsParameter.forEach(point => {
     let currentPosition = point.getAttribute("position");
     if (previousPoint && previousPoint.classList[1] == point.classList[1]) {
       point.setAttribute(
-        "line",
+        line_id,
         `start: 
         ${previousPoint.getAttribute("position").x} 
         ${previousPoint.getAttribute("position").y} 
@@ -213,55 +134,13 @@ function connectPoints() {
     }
     previousPoint = point;
   });
+};
 
-  Array.from(geoPoints)
+function connectPointsHandler() {
+  let geoPoints = document.querySelectorAll(".geoPoint");
+  let geoPointsReversed = Array.from(geoPoints)
     .slice()
-    .reverse()
-    .forEach(point => {
-      let currentPosition = point.getAttribute("position");
-      if (previousPoint && previousPoint.classList[1] == point.classList[1]) {
-        point.setAttribute(
-          "line__2",
-          `start: 
-          ${previousPoint.getAttribute("position").x
-          } ${previousPoint.getAttribute("position").y
-          } ${previousPoint.getAttribute("position").z
-          }; 
-          end: 
-          ${currentPosition.x} 
-          ${currentPosition.y} 
-          ${currentPosition.z
-          };  color: red`
-        );
-      }
-      previousPoint = point;
-    });
+    .reverse();
+  connectPoints(geoPoints, "line");
+  connectPoints(geoPointsReversed, "line_2");
 }
-
-
-
-
-  // ////refreshing distance above geopoints
-  // [...document.querySelectorAll(".geoPoint")].forEach(point => {
-  //   if (point.getAttribute("distance") < 700) {
-  //     //refreshing only up to 700m from the camera
-  //     point
-  //       .querySelector(".distDisplay")
-  //       .setAttribute(
-  //         "text",
-  //         `value: ${point.getAttribute("distanceMsg")}; color: green;`
-  //       );
-  //   }
-  // });
-
-  //getting current location
-
-
-
-      // if (place.geometry.type != "Point" &&
-    //   place.geometry.type != "lineString" &&
-    //   place.geometry.type != "MultiPolygon" && 
-    //   place.geometry.type != "MultiLineString" &&
-    //   place.geometry.type != "Polygon") {
-    //   console.log(place.geometry.type);
-    // }
