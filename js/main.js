@@ -48,7 +48,7 @@ let XmlContent = (xCoord, yCoord) =>
                         <gml:exterior>
                             <gml:LinearRing>
                                 <gml:coordinates decimal="." cs="," ts=" ">
-                                ${calcDist(xCoord, yCoord, 0.0005, 0.001)}
+                                ${calcDist(xCoord, yCoord, 0.001, 0.002)}
                                 </gml:coordinates>
                             </gml:LinearRing>
                         </gml:exterior>
@@ -145,5 +145,5 @@ function connectPointsHandler() {
   let geoPointsReversed = Array.from(geoPoints)
     .slice()
     .reverse();
-  connectPoints(geoPoints, "line");
+  connectPoints(geoPointsReversed, "line");
 }
