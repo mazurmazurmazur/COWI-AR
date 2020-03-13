@@ -2,7 +2,6 @@
 
 window.addEventListener("load", function() {
   getLocation();
-  // setInterval(getLocation, 10000);
 });
 
 let x = document.getElementById("demo");
@@ -147,3 +146,5 @@ function connectPointsHandler() {
   connectPoints(geoPoints, "line");
   connectPoints(geoPointsReversed, "line_2");
 }
+
+setInterval(getLocation, 10000);
