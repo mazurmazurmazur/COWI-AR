@@ -2,7 +2,7 @@
 
 window.addEventListener("load", function() {
   getLocation();
-  setInterval(getLocation, 10000);
+  // setInterval(getLocation, 10000);
 });
 
 let x = document.getElementById("demo");
