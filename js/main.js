@@ -1,6 +1,11 @@
 "use strict";
 setInterval(getLocation, 20000);
 
+let globalGeo = {
+  lt: 0,
+  lg: 0
+};
+
 window.addEventListener("load", function() {
   getLocation();
 });
@@ -78,13 +83,18 @@ function getLocation() {
 }
 
 function showPosition(position) {
-  x.innerHTML =
-    "Latitude: " +
-    position.coords.latitude +
-    "<br>Longitude: " +
-    position.coords.longitude;
+  let lati = position.coords.latitude;
+  let longi = position.coords.longitude;
 
-  fetchContact(position.coords.latitude, position.coords.longitude);
+  x.innerHTML = "Latitude: " + lati + "<br>Longitude: " + longi;
+  if (
+    Math.abs(globalGeo.lt - lati) > 0.001 ||
+    Math.abs(globalGeo.lg - longi) > 0.001
+  )
+    fetchContact(lati, longi);
+
+  globalGeo.lt = lati;
+  globalGeo.lg = longi;
 }
 
 const removeElements = elms => elms.forEach(el => el.remove()); //function for removing all elements with particular e.g. class
