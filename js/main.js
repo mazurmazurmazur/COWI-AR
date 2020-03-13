@@ -4,7 +4,8 @@ window.addEventListener("load", function() {
   getLocation();
 });
 
-var x = document.getElementById("demo");
+let x = document.getElementById("demo");
+let geoPoints;
 
 const calcDist = (x, y, plusLat, plusLong) => {
   ///function getting current coordinates, creating a rectangle around us in which the lines are rendered
@@ -59,6 +60,7 @@ let XmlContent = (xCoord, yCoord) =>
 </wfs:GetFeature>`;
 
 function fetchContact(xCoor, yCoor) {
+  //fetching data from geoserver
   fetch(
     "https://cors-anywhere.herokuapp.com/https://cmv.cowi.com/geoserver/wfs/",
     {
@@ -82,6 +84,7 @@ function showPosition(position) {
     position.coords.latitude +
     "<br>Longitude: " +
     position.coords.longitude;
+
   fetchContact(position.coords.latitude, position.coords.longitude);
 }
 
@@ -89,9 +92,9 @@ function yourFunction() {
   getLocation();
   setTimeout(yourFunction, 10000); ///recurrent function, looping for ever
 }
+const removeElements = elms => elms.forEach(el => el.remove()); //function for removing all elements with particular e.g. class
 
 function renderPlaces(places) {
-  console.log(places);
   let scene = document.querySelector("a-scene");
   places.features.forEach((place, placeIndex) => {
     place.geometry.coordinates.forEach(coordinatesWrapper => {
@@ -114,6 +117,7 @@ function renderPlaces(places) {
       });
     });
   });
+  // geoPoints ? removeElements(geoPoints) : null;
 }
 
 let connectPoints = (geoPointsParameter, line_id) => {
@@ -139,7 +143,7 @@ let connectPoints = (geoPointsParameter, line_id) => {
 };
 
 function connectPointsHandler() {
-  let geoPoints = document.querySelectorAll(".geoPoint");
+  geoPoints = document.querySelectorAll(".geoPoint");
   let geoPointsReversed = Array.from(geoPoints)
     .slice()
     .reverse();
