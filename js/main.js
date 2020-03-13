@@ -48,7 +48,7 @@ let XmlContent = (xCoord, yCoord) =>
                         <gml:exterior>
                             <gml:LinearRing>
                                 <gml:coordinates decimal="." cs="," ts=" ">
-                                ${calcDist(xCoord, yCoord, 0.001, 0.002)}
+                                ${calcDist(xCoord, yCoord, 0.001, 0.0015)}
                                 </gml:coordinates>
                             </gml:LinearRing>
                         </gml:exterior>
@@ -70,8 +70,7 @@ function fetchContact(xCoor, yCoor) {
     }
   )
     .then(res => res.json())
-    .then(renderPlaces)
-    .then(connectPointsHandler);
+    .then(renderPlaces);
 }
 
 function getLocation() {
@@ -114,17 +113,18 @@ function renderPlaces(places) {
       });
     });
   });
+  connectPoints();
   geoPoints ? removeElements(geoPoints) : null;
 }
 
-let connectPoints = (geoPointsParameter, line_id) => {
-  console.log(geoPointsParameter);
+function connectPoints() {
   let previousPoint;
-  geoPointsParameter.forEach(point => {
+  let geoPoints = document.querySelectorAll(".geoPoint");
+  geoPoints.forEach(point => {
     let currentPosition = point.getAttribute("position");
     if (previousPoint && previousPoint.classList[1] == point.classList[1]) {
       point.setAttribute(
-        line_id,
+        "line",
         `start: 
         ${previousPoint.getAttribute("position").x} 
         ${previousPoint.getAttribute("position").y} 
@@ -138,12 +138,55 @@ let connectPoints = (geoPointsParameter, line_id) => {
     }
     previousPoint = point;
   });
-};
-
-function connectPointsHandler() {
-  geoPoints = document.querySelectorAll(".geoPoint");
-  let geoPointsReversed = Array.from(geoPoints)
+  Array.from(geoPoints)
     .slice()
-    .reverse();
-  connectPoints(geoPointsReversed, "line");
+    .reverse()
+    .forEach(point => {
+      let currentPosition = point.getAttribute("position");
+      if (previousPoint && previousPoint.classList[1] == point.classList[1]) {
+        point.setAttribute(
+          "line__2",
+          `start: 
+          ${previousPoint.getAttribute("position").x} ${
+            previousPoint.getAttribute("position").y
+          } ${previousPoint.getAttribute("position").z}; 
+          end: 
+          ${currentPosition.x} 
+          ${currentPosition.y} 
+          ${currentPosition.z};  color: red`
+        );
+      }
+      previousPoint = point;
+    });
 }
+
+// let connectPoints = (geoPointsParameter, line_id) => {
+//   let previousPoint;
+//   geoPointsParameter.forEach(point => {
+//     let currentPosition = point.getAttribute("position");
+//     if (previousPoint && previousPoint.classList[1] == point.classList[1]) {
+//       point.setAttribute(
+//         line_id,
+//         `start:
+//         ${previousPoint.getAttribute("position").x}
+//         ${previousPoint.getAttribute("position").y}
+//         ${previousPoint.getAttribute("position").z};
+//         end:
+//         ${currentPosition.x}
+//         ${currentPosition.y}
+//         ${currentPosition.z};
+//         color: red`
+//       );
+//     }
+//     previousPoint = point;
+//   });
+// };
+
+// function connectPointsHandler() {
+//   geoPoints = document.querySelectorAll(".geoPoint");
+//   let geoPointsReversed = Array.from(geoPoints)
+//     .slice()
+//     .reverse();
+//   connectPoints(geoPoints, "line__2");
+//   connectPoints(geoPointsReversed, "line");
+// }
