@@ -62,13 +62,10 @@ let XmlContent = (xCoord, yCoord) =>
 
 function fetchContact(xCoor, yCoor) {
   //fetching data from geoserver
-  fetch(
-    "https://cors-anywhere.herokuapp.com/https://cmv.cowi.com/geoserver/wfs/",
-    {
-      method: "post",
-      body: XmlContent(xCoor, yCoor)
-    }
-  )
+  fetch("https://cmv.cowi.com/geoserver/wfs/", {
+    method: "post",
+    body: XmlContent(xCoor, yCoor)
+  })
     .then(res => res.json())
     .then(renderPlaces)
     .then(connectPointsHandler);
