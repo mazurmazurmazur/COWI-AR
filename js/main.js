@@ -7,10 +7,11 @@ window.addEventListener("load", function() {
 var x = document.getElementById("demo");
 
 const calcDist = (x, y, plusLat, plusLong) => {
+  ///function getting current coordinates, creating a rectangle around us in which the lines are rendered
   let currentArr = [];
   let currentString;
   let t = [
-    (x + plusLat).toFixed(10),
+    (x + plusLat).toFixed(10), //precision up to ten numbers after coma
     (y + plusLong).toFixed(10),
     (x - plusLat).toFixed(10),
     (y - plusLong).toFixed(10)
@@ -25,6 +26,7 @@ const calcDist = (x, y, plusLat, plusLong) => {
   );
 
   currentArr.forEach(a => {
+    ///translating an array into a string and formatting for XML <gml:coordinates> tag
     currentString
       ? (currentString = currentString + a + " ")
       : (currentString = a.toString() + " ");
