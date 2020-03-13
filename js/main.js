@@ -1,5 +1,5 @@
 "use strict";
-setInterval(getLocation, 10000);
+setInterval(getLocation, 20000);
 
 window.addEventListener("load", function() {
   getLocation();
