@@ -146,5 +146,4 @@ function connectPointsHandler() {
     .slice()
     .reverse();
   connectPoints(geoPoints, "line");
-  connectPoints(geoPointsReversed, "line_2");
 }
