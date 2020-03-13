@@ -123,13 +123,15 @@ function renderPlaces(places) {
       });
     });
   });
-  connectPoints();
+
   geoPoints ? removeElements(geoPoints) : null;
+  connectPoints();
 }
 
 function connectPoints() {
   let previousPoint;
-  let geoPoints = document.querySelectorAll(".geoPoint");
+  geoPoints = document.querySelectorAll(".geoPoint");
+  console.log(geoPoints);
   geoPoints.forEach(point => {
     let currentPosition = point.getAttribute("position");
     if (previousPoint && previousPoint.classList[1] == point.classList[1]) {
