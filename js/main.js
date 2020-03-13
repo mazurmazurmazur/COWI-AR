@@ -114,7 +114,7 @@ function renderPlaces(places) {
       });
     });
   });
-  geoPoints ? removeElements(geoPoints) : null;
+  // geoPoints ? removeElements(geoPoints) : null;
 }
 
 let connectPoints = (geoPointsParameter, line_id) => {
