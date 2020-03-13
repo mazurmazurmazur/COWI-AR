@@ -1,4 +1,5 @@
 "use strict";
+setInterval(getLocation, 10000);
 
 window.addEventListener("load", function() {
   getLocation();
@@ -146,5 +147,3 @@ function connectPointsHandler() {
   connectPoints(geoPoints, "line");
   connectPoints(geoPointsReversed, "line_2");
 }
-
-setInterval(getLocation(), 10000);
