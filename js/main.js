@@ -1,9 +1,9 @@
 "use strict";
-setInterval(getLocation, 20000);
-
+// setInterval(getLocation, 20000);
+console.log("elis");
 let globalGeo = {
-  lt: 0,
-  lg: 0
+  lt: 55.707825,
+  lg: 12.530655
 };
 
 window.addEventListener("load", function() {
@@ -53,7 +53,7 @@ let XmlContent = (xCoord, yCoord) =>
                         <gml:exterior>
                             <gml:LinearRing>
                                 <gml:coordinates decimal="." cs="," ts=" ">
-                                ${calcDist(xCoord, yCoord, 0.001, 0.0015)}
+                                ${calcDist(xCoord, yCoord, 0.0005, 0.001)}
                                 </gml:coordinates>
                             </gml:LinearRing>
                         </gml:exterior>
@@ -90,13 +90,14 @@ function showPosition(position) {
   )
     fetchContact(lati, longi);
 
-  globalGeo.lt = lati;
-  globalGeo.lg = longi;
+  // globalGeo.lt = lati;
+  // globalGeo.lg = longi;
 }
 
 const removeElements = elms => elms.forEach(el => el.remove()); //function for removing all elements with particular e.g. class
 
 function renderPlaces(places) {
+  console.log("places:");
   console.log(places);
   let scene = document.querySelector("a-scene");
   places.features.forEach((place, placeIndex) => {
