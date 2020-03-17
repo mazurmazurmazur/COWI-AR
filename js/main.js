@@ -127,8 +127,11 @@ function renderPlaces(places) {
       });
 
       document.querySelectorAll(".geoPoint").forEach(a => {
-        console.log(a.getAttribute("position"));
+        a.getAttribute("position").y = -2;
       });
+    });
+    document.querySelectorAll(".geoPoint").forEach(a => {
+      console.log(a.getAttribute("position"));
     });
   });
 
