@@ -135,6 +135,7 @@ function connectPoints() {
         ${currentPosition.z};
         color: red`
       );
+      point.object3D.position.y = -2;
     }
     previousPoint = point;
   });
