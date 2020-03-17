@@ -137,17 +137,18 @@ function connectPoints() {
   geoPoints = document.querySelectorAll(".geoPoint");
   console.log(geoPoints);
   geoPoints.forEach(point => {
+    point.object3D.position.y = "-2";
     let currentPosition = point.getAttribute("position");
     if (previousPoint && previousPoint.classList[1] == point.classList[1]) {
       point.setAttribute(
         "line",
         `start: 
         ${previousPoint.getAttribute("position").x} 
-         -2 
+        ${previousPoint.getAttribute("position").y} 
         ${previousPoint.getAttribute("position").z}; 
         end: 
         ${currentPosition.x} 
-         -2  
+        ${currentPosition.y} 
         ${currentPosition.z};
         color: red`
       );
@@ -163,12 +164,12 @@ function connectPoints() {
         point.setAttribute(
           "line__2",
           `start: 
-          ${previousPoint.getAttribute("position").x} 
-           -2 
-          ${previousPoint.getAttribute("position").z}; 
+          ${previousPoint.getAttribute("position").x} ${
+            previousPoint.getAttribute("position").y
+          } ${previousPoint.getAttribute("position").z}; 
           end: 
           ${currentPosition.x} 
-           -2 
+          ${currentPosition.y} 
           ${currentPosition.z};  color: red`
         );
       }
