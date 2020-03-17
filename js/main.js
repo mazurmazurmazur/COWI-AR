@@ -105,7 +105,7 @@ function renderPlaces(places) {  //adding elements with coordinates to scene
   console.log("places:");
   console.log(places);
   let scene = document.querySelector("a-scene");
-           scene.setAttribute("position", '0 -2 0');
+           scene.setAttribute("position", '0 2 0');
 
   places.features.forEach((place, placeIndex) => {
     place.geometry.coordinates.forEach(coordinatesWrapper => {
