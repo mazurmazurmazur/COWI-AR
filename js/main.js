@@ -113,11 +113,11 @@ function renderPlaces(places) {  //adding elements with coordinates to scene
         // let altitude = coordinate[2] ? coordinate[2] : -2; //if altitude set, use it, otherwise set it to -2
         let model = document.createElement("a-entity");
         let pinImage = document.createElement("a-image");
+        model.setAttribute("position", `0 -1 0`);
         model.setAttribute(
           "gps-entity-place",
           `latitude: ${longitude}; longitude: ${latitude};`
         );
-        model.setAttribute("position", `0 -1 0`);
         model.classList.add("geoPoint", "geo" + placeIndex);
         // pinImage.setAttribute("src", "./assets/marker.png");
         pinImage.setAttribute("look-at", "#camra");
