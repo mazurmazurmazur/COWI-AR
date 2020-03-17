@@ -127,11 +127,11 @@ function connectPoints() {
         "line",
         `start: 
         ${previousPoint.getAttribute("position").x} 
-        ${previousPoint.getAttribute("position").y} 
+         -2  
         ${previousPoint.getAttribute("position").z}; 
         end: 
         ${currentPosition.x} 
-        ${currentPosition.y} 
+         -2  
         ${currentPosition.z};
         color: red`
       );
@@ -148,12 +148,12 @@ function connectPoints() {
         point.setAttribute(
           "line__2",
           `start: 
-          ${previousPoint.getAttribute("position").x} ${
-            previousPoint.getAttribute("position").y
-          } ${previousPoint.getAttribute("position").z}; 
+          ${previousPoint.getAttribute("position").x} 
+           -2
+           ${previousPoint.getAttribute("position").z}; 
           end: 
           ${currentPosition.x} 
-          ${currentPosition.y} 
+          -2  
           ${currentPosition.z};  color: red`
         );
       }
