@@ -122,7 +122,7 @@ function renderPlaces(places) {  //adding elements with coordinates to scene
         // pinImage.setAttribute("src", "./assets/marker.png");
         pinImage.setAttribute("look-at", "#camra");
         // model.appendChild(pinImage);
-        model.object3D.position.y = -0.5;
+        model.object3D.position.y = -2;
         scene.appendChild(model);
       });
     });
