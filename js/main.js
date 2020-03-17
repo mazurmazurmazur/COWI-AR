@@ -129,8 +129,8 @@ function renderPlaces(places) {  //adding elements with coordinates to scene
     });
   });
 
-  geoPoints ? removeElements(geoPoints) : null;
-  connectPoints();
+  // geoPoints ? removeElements(geoPoints) : null;
+  // connectPoints();
 }
 
 function connectPoints() {
