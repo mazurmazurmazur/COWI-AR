@@ -122,7 +122,7 @@ function renderPlaces(places) {  //adding elements with coordinates to scene
          pinImage.setAttribute("src", "./assets/marker.png");
         pinImage.setAttribute("look-at", "#camra");
         //  model.appendChild(pinImage);
-        model.setAttribute("position", '0 -2 0');
+        // model.setAttribute("position", '0 -2 0');
 
         scene.appendChild(model);
       });
@@ -144,11 +144,11 @@ function connectPoints() {
         "line",
         `start: 
         ${previousPoint.getAttribute("position").x} 
-        ${previousPoint.getAttribute("position").y} 
+        -2 
         ${previousPoint.getAttribute("position").z}; 
         end: 
         ${currentPosition.x} 
-        ${currentPosition.y} 
+         -2 
         ${currentPosition.z};
         color: red`
       );
@@ -164,12 +164,10 @@ function connectPoints() {
         point.setAttribute(
           "line__2",
           `start: 
-          ${previousPoint.getAttribute("position").x} ${
-            previousPoint.getAttribute("position").y
-          } ${previousPoint.getAttribute("position").z}; 
+          ${previousPoint.getAttribute("position").x}  -2  ${previousPoint.getAttribute("position").z}; 
           end: 
           ${currentPosition.x} 
-          ${currentPosition.y} 
+          -2  
           ${currentPosition.z};  color: red`
         );
       }
