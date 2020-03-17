@@ -112,7 +112,7 @@ function renderPlaces(places) {
         let longitude = coordinate[1];
         // let altitude = coordinate[2] ? coordinate[2] : -2; //if altitude set, use it, otherwise set it to -2
         let model = document.createElement("a-entity");
-        scene.setAttribute("position", "0 0 0");
+        scene.setAttribute("position", "0 -2 0");
         let pinImage = document.createElement("a-image");
         model.setAttribute(
           "gps-entity-place",
