@@ -2,8 +2,8 @@
 // setInterval(getLocation, 20000);
 console.log("elis");
 let globalGeo = {
-  lt: 55.707825,
-  lg: 12.530655
+  lt:  55.707503,
+  lg:  12.531048
 };
 
 window.addEventListener("load", function() {
@@ -15,6 +15,7 @@ let geoPoints;
 
 const calcDist = (x, y, plusLat, plusLong) => {
   ///function getting current coordinates, creating a rectangle around us in which the lines are rendered
+  
   let currentArr = [];
   let currentString;
   let t = [
@@ -25,11 +26,11 @@ const calcDist = (x, y, plusLat, plusLong) => {
   ];
 
   currentArr.push(
-    [t[3], t[0]],
-    [t[1], t[0]],
-    [t[1], t[2]],
-    [t[3], t[2]],
-    [t[3], t[0]]
+    [y.toFixed(10), t[0]],
+    [t[1], x.toFixed(10)],
+    [y.toFixed(10), t[2]],
+    [t[3], x.toFixed(10)],
+    [y.toFixed(10), t[0]]
   );
 
   currentArr.forEach(a => {
@@ -38,7 +39,10 @@ const calcDist = (x, y, plusLat, plusLong) => {
       ? (currentString = currentString + a + " ")
       : (currentString = a.toString() + " ");
   });
+  console.log('currentsting')
+  console.log(currentString)
   return currentString;
+  
 };
 
 let XmlContent = (xCoord, yCoord) =>
@@ -53,7 +57,7 @@ let XmlContent = (xCoord, yCoord) =>
                         <gml:exterior>
                             <gml:LinearRing>
                                 <gml:coordinates decimal="." cs="," ts=" ">
-                                ${calcDist(xCoord, yCoord, 0.0005, 0.001)}
+                                ${calcDist(xCoord, yCoord, 0.001, 0.002)}
                                 </gml:coordinates>
                             </gml:LinearRing>
                         </gml:exterior>
@@ -83,12 +87,13 @@ function showPosition(position) {
   let lati = position.coords.latitude;
   let longi = position.coords.longitude;
 
+
   x.innerHTML = "Latitude: " + lati + "<br>Longitude: " + longi;
   if (
     Math.abs(globalGeo.lt - lati) > 0.001 ||
     Math.abs(globalGeo.lg - longi) > 0.001
   )
-    fetchContact(lati, longi);
+    fetchContact(globalGeo.lt, globalGeo.lg);
 
   // globalGeo.lt = lati;
   // globalGeo.lg = longi;
@@ -97,6 +102,7 @@ function showPosition(position) {
 const removeElements = elms => elms.forEach(el => el.remove()); //function for removing all elements with particular e.g. class
 
 function renderPlaces(places) {
+  saveDynamicDataToFile(places);
   console.log("places:");
   console.log(places);
   let scene = document.querySelector("a-scene");
@@ -169,6 +175,17 @@ function connectPoints() {
       previousPoint = point;
     });
 }
+
+
+// function saveDynamicDataToFile(places) {
+
+
+
+//   var blob = new Blob([JSON.stringify(places)],
+//   { type: "text/plain;charset=utf-8" });
+//   var link=window.URL.createObjectURL(blob);
+//   window.open(link, '_blank')
+// }
 
 // let connectPoints = (geoPointsParameter, line_id) => {
 //   let previousPoint;
