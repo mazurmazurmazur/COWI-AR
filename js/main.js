@@ -1,9 +1,9 @@
 "use strict";
 setInterval(getLocation, 20000);
-console.log("elis");
+
 let globalGeo = {
-  lt:  55.707503,
-  lg:  12.531048
+  lt: 0,
+  lg: 0
 };
 
 window.addEventListener("load", function() {
