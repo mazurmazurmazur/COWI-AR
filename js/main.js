@@ -125,6 +125,11 @@ function renderPlaces(places) {
 
         scene.appendChild(model);
       });
+      console.log(
+        document.querySelectorAll(".geoPoint").forEach(a => {
+          a.getAttribute("position");
+        })
+      );
     });
   });
 
