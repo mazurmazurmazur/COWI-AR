@@ -112,8 +112,6 @@ function renderPlaces(places) {  //adding elements with coordinates to scene
         let longitude = coordinate[1];
         // let altitude = coordinate[2] ? coordinate[2] : -2; //if altitude set, use it, otherwise set it to -2
         let model = document.createElement("a-entity");
-                model.setAttribute("position", '0 -2 0');
-
 
         let pinImage = document.createElement("a-image");
         model.setAttribute(
@@ -124,6 +122,7 @@ function renderPlaces(places) {  //adding elements with coordinates to scene
          pinImage.setAttribute("src", "./assets/marker.png");
         pinImage.setAttribute("look-at", "#camra");
         //  model.appendChild(pinImage);
+        // model.setAttribute("position", '0 -2 0');
 
         scene.appendChild(model);
       });
@@ -145,11 +144,11 @@ function connectPoints() {
         "line",
         `start: 
         ${previousPoint.getAttribute("position").x} 
-        -2 
+        ${previousPoint.getAttribute("position").y} 
         ${previousPoint.getAttribute("position").z}; 
         end: 
         ${currentPosition.x} 
-         -2 
+        ${currentPosition.y} 
         ${currentPosition.z};
         color: red`
       );
@@ -165,10 +164,12 @@ function connectPoints() {
         point.setAttribute(
           "line__2",
           `start: 
-          ${previousPoint.getAttribute("position").x}  -2  ${previousPoint.getAttribute("position").z}; 
+          ${previousPoint.getAttribute("position").x} ${
+            previousPoint.getAttribute("position").y
+          } ${previousPoint.getAttribute("position").z}; 
           end: 
           ${currentPosition.x} 
-          -2  
+          ${currentPosition.y} 
           ${currentPosition.z};  color: red`
         );
       }
