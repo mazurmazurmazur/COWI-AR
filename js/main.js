@@ -117,9 +117,9 @@ function renderPlaces(places) {  //adding elements with coordinates to scene
           "gps-entity-place",
           `latitude: ${longitude}; longitude: ${latitude};`
         );
-        model.setAttribute("position", `0 -2 0`);
+        model.setAttribute("position", `0 -1 0`);
         model.classList.add("geoPoint", "geo" + placeIndex);
-        pinImage.setAttribute("src", "./assets/marker.png");
+        // pinImage.setAttribute("src", "./assets/marker.png");
         pinImage.setAttribute("look-at", "#camra");
         model.appendChild(pinImage);
         scene.appendChild(model);
