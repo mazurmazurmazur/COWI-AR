@@ -105,6 +105,8 @@ function renderPlaces(places) {  //adding elements with coordinates to scene
   console.log("places:");
   console.log(places);
   let scene = document.querySelector("a-scene");
+           scene.setAttribute("position", '0 -2 0');
+
   places.features.forEach((place, placeIndex) => {
     place.geometry.coordinates.forEach(coordinatesWrapper => {
       coordinatesWrapper.forEach(coordinate => {
@@ -112,7 +114,6 @@ function renderPlaces(places) {  //adding elements with coordinates to scene
         let longitude = coordinate[1];
         // let altitude = coordinate[2] ? coordinate[2] : -2; //if altitude set, use it, otherwise set it to -2
         let model = document.createElement("a-entity");
-        // scene.setAttribute("position", '0 -2 0');
 
         let pinImage = document.createElement("a-image");
         model.setAttribute(
