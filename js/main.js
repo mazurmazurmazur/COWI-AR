@@ -1,5 +1,5 @@
 "use strict";
-// setInterval(getLocation, 20000);
+setInterval(getLocation, 20000);
 console.log("elis");
 let globalGeo = {
   lt:  55.707503,
@@ -89,14 +89,14 @@ function showPosition(position) {
 
 
   x.innerHTML = "Latitude: " + lati + "<br>Longitude: " + longi;
-  // if (
-  //   Math.abs(globalGeo.lt - lati) > 0.001 ||
-  //   Math.abs(globalGeo.lg - longi) > 0.001
-  // )
-    fetchContact(globalGeo.lt, globalGeo.lg);
+  if (                                            //only refreshes if location changed significantly
+    Math.abs(globalGeo.lt - lati) > 0.001 ||
+    Math.abs(globalGeo.lg - longi) > 0.001
+  )
+    fetchContact(lati, longi);
 
-  // globalGeo.lt = lati;
-  // globalGeo.lg = longi;
+  globalGeo.lt = lati;
+  globalGeo.lg = longi;
 }
 
 const removeElements = elms => elms.forEach(el => el.remove()); //function for removing all elements with particular e.g. class
@@ -110,14 +110,14 @@ function renderPlaces(places) {
       coordinatesWrapper.forEach(coordinate => {
         let latitude = coordinate[0];
         let longitude = coordinate[1];
-        // let altitude = coordinate[2] ? coordinate[2] : -2; //if altitude set, use it, otherwise set it to -2
+        let altitude = coordinate[2] ? coordinate[2] : -2; //if altitude set, use it, otherwise set it to -2
         let model = document.createElement("a-entity");
         let pinImage = document.createElement("a-image");
         model.setAttribute(
           "gps-entity-place",
           `latitude: ${longitude}; longitude: ${latitude};`
         );
-        // model.setAttribute("position", `0 ${altitude} 0`);
+        model.setAttribute("position", `0 ${altitude} 0`);
         model.classList.add("geoPoint", "geo" + placeIndex);
         pinImage.setAttribute("src", "./assets/marker.png");
         pinImage.setAttribute("look-at", "#camra");
