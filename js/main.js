@@ -15,7 +15,7 @@ let geoPoints;
 
 const calcDist = (x, y, plusLat, plusLong) => {
   ///function getting current coordinates, creating a rectangle around us in which the lines are rendered
-  
+
   let currentArr = [];
   let currentString;
   let t = [
@@ -39,10 +39,9 @@ const calcDist = (x, y, plusLat, plusLong) => {
       ? (currentString = currentString + a + " ")
       : (currentString = a.toString() + " ");
   });
-  console.log('currentsting')
-  console.log(currentString)
+  console.log("currentsting");
+  console.log(currentString);
   return currentString;
-  
 };
 
 let XmlContent = (xCoord, yCoord) =>
@@ -87,9 +86,9 @@ function showPosition(position) {
   let lati = position.coords.latitude;
   let longi = position.coords.longitude;
 
-
   x.innerHTML = "Latitude: " + lati + "<br>Longitude: " + longi;
-  if (                                            //only refreshes if location changed significantly
+  if (
+    //only refreshes if location changed significantly
     Math.abs(globalGeo.lt - lati) > 0.001 ||
     Math.abs(globalGeo.lg - longi) > 0.001
   )
@@ -101,7 +100,8 @@ function showPosition(position) {
 
 const removeElements = elms => elms.forEach(el => el.remove()); //function for removing all elements with particular e.g. class
 
-function renderPlaces(places) {  //adding elements with coordinates to scene
+function renderPlaces(places) {
+  //adding elements with coordinates to scene
   console.log("places:");
   console.log(places);
   let scene = document.querySelector("a-scene");
@@ -112,17 +112,16 @@ function renderPlaces(places) {  //adding elements with coordinates to scene
         let longitude = coordinate[1];
         // let altitude = coordinate[2] ? coordinate[2] : -2; //if altitude set, use it, otherwise set it to -2
         let model = document.createElement("a-entity");
-         model.setAttribute("position", '0 -3 0');
+        //  model.setAttribute("position", '0 -3 0');
         let pinImage = document.createElement("a-image");
         model.setAttribute(
           "gps-entity-place",
           `latitude: ${longitude}; longitude: ${latitude};`
         );
         model.classList.add("geoPoint", "geo" + placeIndex);
-         pinImage.setAttribute("src", "./assets/marker.png");
+        pinImage.setAttribute("src", "./assets/marker.png");
         pinImage.setAttribute("look-at", "#camra");
         //  model.appendChild(pinImage);
-      
 
         scene.appendChild(model);
       });
@@ -177,10 +176,7 @@ function connectPoints() {
     });
 }
 
-
 // function saveDynamicDataToFile(places) {
-
-
 
 //   var blob = new Blob([JSON.stringify(places)],
 //   { type: "text/plain;charset=utf-8" });
