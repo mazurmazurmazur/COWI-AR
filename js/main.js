@@ -102,7 +102,6 @@ function showPosition(position) {
 const removeElements = elms => elms.forEach(el => el.remove()); //function for removing all elements with particular e.g. class
 
 function renderPlaces(places) {
-  saveDynamicDataToFile(places);
   console.log("places:");
   console.log(places);
   let scene = document.querySelector("a-scene");
