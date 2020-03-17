@@ -112,7 +112,7 @@ function renderPlaces(places) {  //adding elements with coordinates to scene
         let longitude = coordinate[1];
         // let altitude = coordinate[2] ? coordinate[2] : -2; //if altitude set, use it, otherwise set it to -2
         let model = document.createElement("a-entity");
-        scene.setAttribute("position", '0 -2 0');
+        // scene.setAttribute("position", '0 -2 0');
 
         let pinImage = document.createElement("a-image");
         model.setAttribute(
@@ -120,7 +120,7 @@ function renderPlaces(places) {  //adding elements with coordinates to scene
           `latitude: ${longitude}; longitude: ${latitude};`
         );
         model.classList.add("geoPoint", "geo" + placeIndex);
-        // pinImage.setAttribute("src", "./assets/marker.png");
+         pinImage.setAttribute("src", "./assets/marker.png");
         pinImage.setAttribute("look-at", "#camra");
         // model.appendChild(pinImage);
         scene.appendChild(model);
