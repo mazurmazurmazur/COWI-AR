@@ -89,10 +89,10 @@ function showPosition(position) {
 
 
   x.innerHTML = "Latitude: " + lati + "<br>Longitude: " + longi;
-  if (
-    Math.abs(globalGeo.lt - lati) > 0.001 ||
-    Math.abs(globalGeo.lg - longi) > 0.001
-  )
+  // if (
+  //   Math.abs(globalGeo.lt - lati) > 0.001 ||
+  //   Math.abs(globalGeo.lg - longi) > 0.001
+  // )
     fetchContact(globalGeo.lt, globalGeo.lg);
 
   // globalGeo.lt = lati;
