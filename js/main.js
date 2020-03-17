@@ -101,7 +101,7 @@ function showPosition(position) {
 
 const removeElements = elms => elms.forEach(el => el.remove()); //function for removing all elements with particular e.g. class
 
-function renderPlaces(places) {
+function renderPlaces(places) {  //adding elements with coordinates to scene
   console.log("places:");
   console.log(places);
   let scene = document.querySelector("a-scene");
