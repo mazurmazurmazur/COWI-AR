@@ -2,6 +2,7 @@
 setInterval(getLocation, 20000);
 
 let globalGeo = {
+  //to hold global geocordinates
   lt: 0,
   lg: 0
 };
@@ -19,7 +20,7 @@ const calcDist = (x, y, plusLat, plusLong) => {
   let currentArr = [];
   let currentString;
   let t = [
-    (x + plusLat).toFixed(10), //precision up to ten numbers after coma
+    (x + plusLat).toFixed(10), //precision up to ten numbers after coma, experienced issues with XML request when not unified
     (y + plusLong).toFixed(10),
     (x - plusLat).toFixed(10),
     (y - plusLong).toFixed(10)
@@ -44,7 +45,10 @@ const calcDist = (x, y, plusLat, plusLong) => {
   return currentString;
 };
 
-let XmlContent = (xCoord, yCoord) =>
+let XmlContent = (
+  xCoord,
+  yCoord ///body of XML request for geoJSON file with filter(closes area)
+) =>
   `<wfs:GetFeature service="WFS" version="1.1.0" outputFormat="json" xmlns:gpms="https://cmv.cowi.com/geoserver/gpms" xmlns:wfs="http://www.opengis.net/wfs" xmlns:gml="http://www.opengis.net/gml" xmlns:ogc="http://www.opengis.net/ogc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.opengis.net/wfs http://schemas.opengis.net/wfs/1.1.0/wfs.xsd">
 <wfs:Query srsName="http://www.opengis.net/gml/srs/epsg.xml#4326" typeName="ar_test:copenhagen_nv_ar_test">
     <Filter>
@@ -79,6 +83,7 @@ function fetchContact(xCoor, yCoor) {
 }
 
 function getLocation() {
+  //function fetching current location
   return navigator.geolocation.getCurrentPosition(showPosition);
 }
 
@@ -112,7 +117,7 @@ function renderPlaces(places) {
         let longitude = coordinate[1];
         // let altitude = coordinate[2] ? coordinate[2] : -2; //if altitude set, use it, otherwise set it to -2
         let model = document.createElement("a-entity");
-        model.setAttribute("position", "0 -2 0");
+        model.setAttribute("position", "0 -2 0"); //DOES NOT WORK, PROBABLY OVERRIDEN BY LIBRARY(not a problem with static html elements though)
         let pinImage = document.createElement("a-image");
         model.setAttribute(
           "gps-entity-place",
@@ -137,7 +142,7 @@ function connectPoints() {
   geoPoints = document.querySelectorAll(".geoPoint");
   console.log(geoPoints);
   geoPoints.forEach(point => {
-    point.object3D.position.y = "-10";
+    point.object3D.position.y = "-2"; //forces the elevation of elements of choice before rendering red lines
     let currentPosition = point.getAttribute("position");
     if (previousPoint && previousPoint.classList[1] == point.classList[1]) {
       point.setAttribute(
