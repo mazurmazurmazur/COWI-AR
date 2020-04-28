@@ -6,9 +6,6 @@
     <title>Cowi AR.js geotests</title>
     <script src="https://aframe.io/releases/1.0.3/aframe.min.js"></script>
     <script src="https://raw.githack.com/jeromeetienne/AR.js/2.2.2/aframe/build/aframe-ar.js"></script>
-    <!-- <script src="https://rawcdn.githack.com/AR-js-org/AR.js/a5619a021e6ff40427ff8f9c62169e99a390f56b/aframe/build/aframe-ar-nft.min.js"></script> -->
-    <!-- <script src="https://raw.githack.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
-    <script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script> -->
     <script>
       THREEx.ArToolkitContext.baseURL =
         "https://raw.githack.com/jeromeetienne/ar.js/master/three.js/";
@@ -17,31 +14,47 @@
   </head>
 
   <body style="margin: 0; overflow: hidden;">
+    <!-- <a-scene> is the whole world around us that we see through the camera, this is where all elements based on coordinates will be rendered  -->
     <a-scene
       vr-mode-ui="enabled: false"
       embedded
       arjs="cameraParametersUrl: ./assets/camera_para.dat; sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;"
     >
+      <!-- <a-entity> is and example of an element in the 3d world created around us -->
       <a-entity
         class="geoPoint geo13"
         latitude="55.7075061"
         longitude="12.5312545"
         position="0 -2 0"
       ></a-entity>
+      <!-- <a-camera> is out point of view, gps-camera element comes from AR.js and allows us to recognize where we are according to out coordinates -->
       <a-camera id="camra" gps-camera rotation-reader> </a-camera>
     </a-scene>
+    <!-- #demoContainer is a preview on coordinates that your device detects currently, can be updated manually by tapping but also refreshes every 10000ms -->
     <div
       id="demoContainer"
       onclick="connectPointsHandler()"
-      style="z-index: 1000000; background-color: white; position: fixed; top: 5vh; right: 5vw;"
+      style="
+        z-index: 1000000;
+        background-color: white;
+        position: fixed;
+        top: 5vh;
+        right: 5vw;
+      "
     >
       <p id="demo">test</p>
     </div>
-
+    <!-- #buttonConnect is used to clear the previous lines connecting coordinate points and renders new ones, comfort  saving memory during testing -->
     <div
       id="buttonConnect"
       onclick="connectPoints()"
-      style="z-index: 1000000; background-color: white; position: fixed; top: 5vh; left: 5vw;"
+      style="
+        z-index: 1000000;
+        background-color: white;
+        position: fixed;
+        top: 5vh;
+        left: 5vw;
+      "
     >
       connect
     </div>
